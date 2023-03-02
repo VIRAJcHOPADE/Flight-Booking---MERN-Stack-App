@@ -18,15 +18,17 @@ extended: true ,
  parameterLimit:50000}));
 
 
-// const product  = require('./routes/productRoute')
-const user  = require('./routes/userRoute.js')
-// const order  = require('./routes/orderRoute')
-// const poster = require('./routes/posterRoute')
+ const user  = require('./routes/userRoute.js')
+ const event  = require('./routes/eventRoutes')
+const flight  = require('./routes/FlightRoutes')
+const hotel = require('./routes/HotelRoutes')
+const tour = require('./routes/tourPackageRoute')
 
-// app.use("/api/v1/", product);
 app.use("/api/v1/", user);
-// app.use("/api/v1/", order);
-// app.use("/api/v1/", poster);
+app.use("/api/v1/", event);
+app.use("/api/v1/", flight);
+app.use("/api/v1/", hotel);
+app.use("/api/v1/", tour);
 
 // app.use(express.static(path.join(__dirname, "../frontend/src")));
 

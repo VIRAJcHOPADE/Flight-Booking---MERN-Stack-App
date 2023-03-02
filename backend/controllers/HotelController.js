@@ -41,3 +41,18 @@ exports.deleteHotel = (async (req, res, next) => {
     }
     });
 
+
+    
+
+    
+exports.searchHotels = (async (req, res, next) => {
+   try{
+
+       const { destination} = req.body;
+      const hotels = await Hotel.find({destination : destination})
+      await res.status(200).send({success : true ,hotels})
+      return;
+   }catch(err) {
+      await  res.send({success:false  , message : err.stack});
+   }
+   });

@@ -15,12 +15,12 @@ exports.createEvent = (async (req, res, next) => {
 
 
 
-exports.updateFlight = (async (req, res, next) => {
+exports.updateEvent = (async (req, res, next) => {
     try{
 
         const {name , destination , eventPrice  , _id} = req.body;
       const event =   await Event.findByIdAndUpdate( _id ,{name , destination , eventPrice})
-       await res.status(200).send({success : true , hotel})
+       await res.status(200).send({success : true , event})
        return;
     }catch(err) {
        await  res.send({success:false  , message : err.stack});
@@ -28,7 +28,7 @@ exports.updateFlight = (async (req, res, next) => {
     });
 
 
-exports.deleteFlight = (async (req, res, next) => {
+exports.deleteEvents = (async (req, res, next) => {
     try{
 
         const { _id} = req.body;
