@@ -36,6 +36,18 @@ const userSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now,
 	},
+	flights : [
+		{
+			type:mongoose.Schema.Types.ObjectId,
+			ref:"Flight"
+		}
+	],
+	tourPackage : [
+		{
+			type : mongoose.Schema.Types.ObjectId,
+			ref : "Tour"
+		}
+	]
 	
 });
 
