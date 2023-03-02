@@ -1,7 +1,8 @@
 const User = require("../models/UserModels.js");
+const Flight = require("../models/FlightModel")
+const Tour = require("../models/TourPackage")
 const sendToken = require("../utils/jwtToken.js");
-// const crypto = require("crypto");
-// const cookieParser = require("cookie-parser");
+
 
 
 //Register a User
@@ -113,6 +114,7 @@ exports.updatePassword = (async (req, res, next) => {
     }
 });
 
+//  Update User Profile
 
 exports.updateProfile = (async (req, res, next) => {
     try{
@@ -135,6 +137,8 @@ exports.updateProfile = (async (req, res, next) => {
             }
 });
 
+// Get All Users
+
 exports.getAllUsers = async(req,res,next)=>{
     try{
         const users = await User.find();
@@ -145,6 +149,8 @@ exports.getAllUsers = async(req,res,next)=>{
     }
 }
 
+
+// Delete Users
 exports.deleteUser = async(req,res,next)=>{
     try{
       
@@ -167,7 +173,7 @@ exports.deleteUser = async(req,res,next)=>{
 }
 
 
-
+// Change User Role
 exports.changeUserRole = async(req,res,next)=>{
     try{
         const user = await User.findById(req.body.id);
@@ -181,6 +187,38 @@ exports.changeUserRole = async(req,res,next)=>{
          user.role = req.body.role;
         await user.save();
     await res.status(200).send({success:true , message : "User Role Updated successfully !!"})
+
+    }catch(error){
+        await res.status(400).send({success : false , message : err.message});
+    }
+}
+
+
+// Book Flight
+exports.bookFlight = async(req,res,next)=>{
+    try{
+        const {id , flight} = req.body;
+        const user = await User.findById(id);
+        user.flights.push(flight);
+        await user.save();
+        await user.populate("flights" )
+    await res.status(200).send({success:true , message : "Flight Booked Successfully !!" , user})
+
+    }catch(error){
+        await res.status(400).send({success : false , message : err.message});
+    }
+}
+
+
+// Book Tour
+exports.bookTour = async(req,res,next)=>{
+    try{
+        const {id , tour} = req.body;
+        const user = await User.findById(id);
+        user.tourPackage.push(tour);
+        await user.save();
+        await user.populate("tourPackage" )
+    await res.status(200).send({success:true , message : "Tour Booked Successfully !!" , user})
 
     }catch(error){
         await res.status(400).send({success : false , message : err.message});

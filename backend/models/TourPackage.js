@@ -27,7 +27,7 @@ const tourSchema = new mongoose.Schema({
             ref:"Hotels"
         }
     ],
-    EventDetails : [
+    eventDetails : [
         {
             type : mongoose.Schema.Types.ObjectId,
             ref:"Event"
