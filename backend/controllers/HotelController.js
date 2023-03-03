@@ -1,5 +1,4 @@
-const Hotel = require("../models/TourPackage");
-const User  = require("../models/UserModels")
+const Hotel = require("../models/HotelSchema");
 
 
 exports.createHotel = (async (req, res, next) => {
@@ -21,6 +20,7 @@ exports.updateHotel = (async (req, res, next) => {
 
         const {name , destination , roomPrice  , roomsLeft , _id} = req.body;
       const hotel =   await Hotel.findByIdAndUpdate( _id ,{name , destination , roomPrice  , roomsLeft})
+      await hotel.save();
        await res.status(200).send({success : true , hotel})
        return;
     }catch(err) {
@@ -50,7 +50,8 @@ exports.searchHotels = (async (req, res, next) => {
 
        const { destination} = req.body;
       const hotels = await Hotel.find({destination : destination})
-      await res.status(200).send({success : true ,hotels})
+      const hotelCount = await hotels.length;
+      await res.status(200).send({success : true ,hotels ,hotelCount } )
       return;
    }catch(err) {
       await  res.send({success:false  , message : err.stack});
