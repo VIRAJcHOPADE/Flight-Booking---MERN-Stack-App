@@ -8,6 +8,7 @@ export const Contacts = () => {
          <div class="formBox">
             <h2>Contact Us</h2>
             <p>You will hear from us at the earliest!</p>
+            <span> contact us on 1013-12-3</span>
             <form action="#">
                 <div class="nameInp">
                     <i class="fa fa-user icon"></i>
@@ -27,10 +28,10 @@ export const Contacts = () => {
                         placeholder="Any comment or your query"></textarea>
                 </div>
                 <div class="submitBtn">
-                    <button id="btn" onclick="notif()">Send</button>
+                    
+                    <button id="btn" class="custom-btn btn-2" onclick="notif()">Send</button>
                 </div>
             </form>
-            <p class="extra">You can also contact us at 181-1711-322</p>
         </div>
     </div>
   )
