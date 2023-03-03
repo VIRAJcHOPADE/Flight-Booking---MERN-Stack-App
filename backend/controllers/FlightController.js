@@ -46,8 +46,8 @@ exports.deleteFlight = (async (req, res, next) => {
 exports.searchFlights = (async (req, res, next) => {
    try{
 
-       const { departure , landing} = req.body;
-       let query = {departure : departure , landing : landing}
+       const { from , to} = req.body;
+       let query = {from : from , to : to}
       const flights = await Flight.find(query)
       await res.status(200).send({success : true ,flights})
       return;

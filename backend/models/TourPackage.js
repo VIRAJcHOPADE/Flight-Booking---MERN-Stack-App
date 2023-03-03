@@ -15,24 +15,24 @@ const tourSchema = new mongoose.Schema({
         type : Number,
         required:true
     },
-    flights : [
+    flights : 
         {
             type : mongoose.Schema.Types.ObjectId,
             ref:"Flight"
         }
-    ],
-    hotelDetails :[
+    ,
+    hotelDetails :
         {
             type : mongoose.Schema.Types.ObjectId,
             ref:"Hotels"
         }
-    ],
-    eventDetails : [
+    ,
+    eventDetails : 
         {
             type : mongoose.Schema.Types.ObjectId,
             ref:"Event"
         }
-    ]
+    
 	
 	
 });

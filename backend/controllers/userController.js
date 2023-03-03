@@ -2,7 +2,8 @@ const User = require("../models/UserModels.js");
 const Flight = require("../models/FlightModel")
 const Tour = require("../models/TourPackage")
 const sendToken = require("../utils/jwtToken.js");
-
+const FlightModel = require("../models/FlightModel");
+const Hotel = require('../models/HotelSchema')
 
 
 //Register a User
@@ -217,15 +218,18 @@ exports.changeUserRole = async(req,res,next)=>{
 // Book Flight
 exports.bookFlight = async(req,res,next)=>{
     try{
-        const {id , flight} = req.body;
-        const user = await User.findById(id);
+        const {flight} = req.body;
+        const user = await User.findById(req.user.id);
+        const ThisFlight = await Flight.findById(flight);
+        await ThisFlight.seatsLeft--;
+        await ThisFlight.save();
         user.flights.push(flight);
         await user.save();
         await user.populate("flights" )
     await res.status(200).send({success:true , message : "Flight Booked Successfully !!" , user})
 
     }catch(error){
-        await res.status(400).send({success : false , message : err.message});
+        await res.status(400).send({success : false , message : error.message});
     }
 }
 
@@ -233,14 +237,23 @@ exports.bookFlight = async(req,res,next)=>{
 // Book Tour
 exports.bookTour = async(req,res,next)=>{
     try{
-        const {id , tour} = req.body;
-        const user = await User.findById(id);
-        user.tourPackage.push(tour);
+        const { tour} = req.body;
+        const user = await User.findById(req.user.id);
+        const thisTour = await Tour.findById(tour);
+        const flight =await  FlightModel.findById(thisTour.flights);
+        await flight.seatsLeft--;
+       await  flight.save();
+       const thisHotel = await Hotel.findById(thisTour.hotelDetails);
+       await thisHotel.roomsLeft--;
+       await thisHotel.save();
+        await user.tourPackage.push(tour);
         await user.save();
-        await user.populate("tourPackage" )
+        // await (await user.populate("tourPackage" )).populate("flights")
+        // await (await user.populate("tourPackage" )).populate("hotelDetails")
+        // await (await user.populate("tourPackage" )).populate("eventDetails")
     await res.status(200).send({success:true , message : "Tour Booked Successfully !!" , user})
 
     }catch(error){
-        await res.status(400).send({success : false , message : err.message});
+        await res.status(400).send({success : false , message : error.message});
     }
 }
