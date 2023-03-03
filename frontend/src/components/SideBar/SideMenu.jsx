@@ -60,6 +60,9 @@ const SideMenu = () => {
             class="bx bx-chevron-right toggle"
             onClick={() => {
               document.querySelector("nav").classList.toggle("close");
+              document
+                .querySelector(".content")
+                .classList.toggle("content-big");
             }}
           ></i>
         </header>
