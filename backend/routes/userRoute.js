@@ -1,6 +1,6 @@
 const express = require("express");
 const { isAuthenticatedUser, authorizeRole } = require("../middleware/auth.js");
-const {loginUser  , registerUser , deleteUserAdmin , logout , updatePassword , updateProfile , getAllUsers , deleteUser , changeUserRole , bookFlight , bookTour} = require( '../controllers/userController.js')
+const {loginUser  , registerUser , deleteUserAdmin ,getUserDetails, logout , updatePassword , updateProfile , getAllUsers , deleteUser , changeUserRole , bookFlight , bookTour} = require( '../controllers/userController.js')
 const router = express.Router();
 
 router.route("/register").post(registerUser);
@@ -8,6 +8,7 @@ router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
 
 router.route("/logout").post(logout);
+router.route("/me").get(isAuthenticatedUser,getUserDetails);
 
 router.route("/me/update").put(isAuthenticatedUser, updateProfile);
 

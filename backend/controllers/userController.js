@@ -139,6 +139,17 @@ exports.updateProfile = (async (req, res, next) => {
             }
 });
 
+// Get User details
+
+exports.getUserDetails = async(req,res,next)=>{
+    try{
+        const user = await User.findById(req.user.id);
+      await   res.status(200).send({success:true , user})
+    }catch(error){
+      await  res.status(400).send({success : false , message : "Please Login"})
+    }
+}
+
 // Get All Users
 
 exports.getAllUsers = async(req,res,next)=>{

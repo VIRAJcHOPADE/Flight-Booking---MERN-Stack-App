@@ -62,112 +62,110 @@ export const LoginAndOut = () => {
     if (data?.success == true) {
       toast.success("Login in SuccessFull");
       navigate("/");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } else {
       toast.error(data?.message);
     }
   };
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     navigate("/");
-  //   }
-  // }, []);
-
   return (
-    <div>
-      <section class="wrapper">
-        <div
-          class="form signup"
-          onClick={() => {
-            document.querySelector(".wrapper").classList.remove("active");
-          }}
-        >
-          <header
+    <div className="login-body">
+      <div>
+        <section class="wrapper">
+          <div
+            class="form signup"
             onClick={() => {
               document.querySelector(".wrapper").classList.remove("active");
             }}
           >
-            Signup
-          </header>
-          <form>
-            <input
-              type="text"
-              placeholder="Full name"
-              required
-              value={signupName}
-              onChange={(e) => {
-                setSignUpName(e.target.value);
+            <header
+              onClick={() => {
+                document.querySelector(".wrapper").classList.remove("active");
               }}
-            />
-            <input
-              type="text"
-              placeholder="User name"
-              required
-              value={signupUserName}
-              onChange={(e) => {
-                setSignUpUserName(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Email address"
-              required
-              value={signupEmail}
-              onChange={(e) => {
-                setSignUpEmail(e.target.value);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              value={signupPassword}
-              onChange={(e) => {
-                setSignUpPassword(e.target.value);
-              }}
-            />
-            <input type="submit" value="Signup" onClick={signUpHandler} />
-          </form>
-        </div>
+            >
+              Signup
+            </header>
+            <form>
+              <input
+                type="text"
+                placeholder="Full name"
+                required
+                value={signupName}
+                onChange={(e) => {
+                  setSignUpName(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="User name"
+                required
+                value={signupUserName}
+                onChange={(e) => {
+                  setSignUpUserName(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Email address"
+                required
+                value={signupEmail}
+                onChange={(e) => {
+                  setSignUpEmail(e.target.value);
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                value={signupPassword}
+                onChange={(e) => {
+                  setSignUpPassword(e.target.value);
+                }}
+              />
+              <input type="submit" value="Signup" onClick={signUpHandler} />
+            </form>
+          </div>
 
-        <div
-          class="form login"
-          onClick={() => {
-            document.querySelector(".wrapper").classList.add("active");
-          }}
-        >
-          <header
+          <div
+            class="form login"
             onClick={() => {
               document.querySelector(".wrapper").classList.add("active");
             }}
           >
-            Login
-          </header>
-          <form action="#">
-            <input
-              type="text"
-              placeholder="Email address"
-              required
-              value={loginEmail}
-              onChange={(e) => {
-                setLoginEmail(e.target.value);
+            <header
+              onClick={() => {
+                document.querySelector(".wrapper").classList.add("active");
               }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              value={loginPassword}
-              onChange={(e) => {
-                setLoginPassword(e.target.value);
-              }}
-            />
+            >
+              Login
+            </header>
+            <form action="#">
+              <input
+                type="text"
+                placeholder="Email address"
+                required
+                value={loginEmail}
+                onChange={(e) => {
+                  setLoginEmail(e.target.value);
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                value={loginPassword}
+                onChange={(e) => {
+                  setLoginPassword(e.target.value);
+                }}
+              />
 
-            <input type="submit" value="Login" onClick={loginHandler} />
-          </form>
-        </div>
+              <input type="submit" value="Login" onClick={loginHandler} />
+            </form>
+          </div>
 
-        {/* <script>
+          {/* <script>
         const wrapper = document.querySelector(".wrapper"),
           signupHeader = document.querySelector(".signup header"),
           loginHeader = document.querySelector(".login header");
@@ -179,7 +177,8 @@ export const LoginAndOut = () => {
           wrapper.classList.remove("active");
         });
       </script> */}
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
