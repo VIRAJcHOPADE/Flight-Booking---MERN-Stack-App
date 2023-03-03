@@ -248,7 +248,9 @@ exports.bookTour = async(req,res,next)=>{
        await thisHotel.save();
         await user.tourPackage.push(tour);
         await user.save();
-        // await (await user.populate("tourPackage" )).populate("flights")
+        await (await user.populate("tourPackage" ,"flights"))
+        await (await user.populate("tourPackage" ,"hotelDetails"))
+        await (await user.populate("tourPackage" ,"eventDetails"))
         // await (await user.populate("tourPackage" )).populate("hotelDetails")
         // await (await user.populate("tourPackage" )).populate("eventDetails")
     await res.status(200).send({success:true , message : "Tour Booked Successfully !!" , user})
