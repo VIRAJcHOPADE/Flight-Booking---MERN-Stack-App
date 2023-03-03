@@ -20,6 +20,7 @@ exports.updateEvent = (async (req, res, next) => {
 
         const {name , destination , eventPrice  , _id} = req.body;
       const event =   await Event.findByIdAndUpdate( _id ,{name , destination , eventPrice})
+      await event.save();
        await res.status(200).send({success : true , event})
        return;
     }catch(err) {

@@ -16,11 +16,19 @@ const flightSchema = new mongoose.Schema({
         required : true,
     },
     departure:{
-        type: Date,
+        type: String,
         required:true,
     },
     landing : {
-        type : Date,
+        type : String,
+        required:true,
+    },
+    departureTime : {
+        type: String,
+        required:true,
+    },
+    landingTime : {
+        type: String,
         required:true,
     },
     seatsLeft : {
