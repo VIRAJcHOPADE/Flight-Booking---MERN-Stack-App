@@ -154,12 +154,32 @@ exports.getAllUsers = async(req,res,next)=>{
 exports.deleteUser = async(req,res,next)=>{
     try{
       
-        const user = await User.find({_id : req.params.id});
+        const user = await User.find({_id : req.user.id});
         if(!user){
             res.status(404).send({success:false , error:"User not found"});
             return;
         }
-        await User.findByIdAndDelete( req.params.id);
+        await User.findByIdAndDelete( req.user.id);
+
+        res.status(200).send({success:true , message : "Account deleted Successfully"})
+
+
+
+        
+
+    }catch(error){
+        await res.status(400).send({success : false , message : err.message});
+    }
+}
+exports.deleteUserAdmin = async(req,res,next)=>{
+    try{
+      
+        const user = await User.find({_id : req.body.id});
+        if(!user){
+            res.status(404).send({success:false , error:"User not found"});
+            return;
+        }
+        await User.findByIdAndDelete( req.body.id);
 
         res.status(200).send({success:true , message : "User deleted Successfully"})
 
