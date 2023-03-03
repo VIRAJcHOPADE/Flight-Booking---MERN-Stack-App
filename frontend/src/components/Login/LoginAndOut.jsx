@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.scss";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { isAuthenticated } from "../../auth/isAuthenticated";
+
 export const LoginAndOut = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -64,6 +66,13 @@ export const LoginAndOut = () => {
       toast.error(data?.message);
     }
   };
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate("/");
+  //   }
+  // }, []);
+
   return (
     <div>
       <section class="wrapper">
