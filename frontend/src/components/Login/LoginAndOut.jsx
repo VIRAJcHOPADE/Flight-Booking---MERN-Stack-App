@@ -1,16 +1,5 @@
 import React from 'react'
 import './login.scss'
-
-// const wrapper = document.querySelector(".wrapper"),
-//           signupHeader = document.querySelector(".signup header"),
-//           loginHeader = document.querySelector(".login header");
-
-//         loginHeader.addEventListener("click", () => {
-//           wrapper.classList.add("active");
-//         });
-//         signupHeader.addEventListener("click", () => {
-//           wrapper.classList.remove("active");
-//         });
     
 export const LoginAndOut = () => {
   return (
@@ -19,6 +8,7 @@ export const LoginAndOut = () => {
       <div class="form signup" onClick={()=>{document.querySelector(".wrapper").classList.remove("active")}}>
         <header onClick={()=>{document.querySelector(".wrapper").classList.remove("active")}} >Signup</header>
         <form action="#">
+          <input type="text" placeholder="Username" required />
           <input type="text" placeholder="Full name" required />
           <input type="text" placeholder="Email address" required />
           <input type="password" placeholder="Password" required />
