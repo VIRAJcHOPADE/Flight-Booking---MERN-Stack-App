@@ -17,10 +17,11 @@ exports.registerUser = (async (req, res, next) => {
             role = "admin";
         }
         
-        const { name, email, password ,avatar} = req.body;
+        const { username , name, email, password ,avatar} = req.body;
         
         const user = await User.create({
             name,
+            username,
             email,
             password,
             role,
@@ -29,7 +30,7 @@ exports.registerUser = (async (req, res, next) => {
         
         sendToken(user, 201, res);
     }catch(err) {
-       await  res.send({success:false  , message : err.stack});
+       await  res.send({success:false  , message : "User Already Exists with this email"});
     }
     });
 
