@@ -33,7 +33,13 @@ const SideMenu = () => {
     <>
       <nav class="sidebar close">
         <header>
-          <div class="image-text">
+          <div
+            class="image-text"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              navigate("/me");
+            }}
+          >
             <span class="image">
               <img
                 src={
