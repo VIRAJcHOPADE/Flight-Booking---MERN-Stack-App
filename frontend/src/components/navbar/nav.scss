@@ -1,0 +1,150 @@
+$color_1: rgb(59, 59, 59);
+$color_2: orangered;
+$color_3: rgb(61, 61, 61);
+$font-family_1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$background-color_1: white;
+$background-color_2: orangered;
+
+.nav {
+	z-index: 1000;
+	background-color: rgb(202, 195, 195);
+	padding: 1vmax;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid rgba(43, 43, 43, 0.137);
+}
+.logo {
+	background-color: $background-color_2;
+	width: 58px;
+	border-radius: 20px;
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+	right: 2vmax;
+}
+#logoImage {
+	transition: all 0.2s;
+	transform: translateX(-58px);
+	&:hover {
+		transform: translateX(0);
+	}
+}
+.navlinks {
+	color: $color_1;
+    
+	text-decoration: none;
+	margin: 1vmax 1.2vmax;
+	font-family: $font-family_1;
+	font-weight: 500;
+	font-size: 1.1vmax;
+	&:hover {
+		color: $color_2;
+		text-decoration: none;
+	}
+}
+.searchbox {
+	position: relative;
+	left: 5vmax;
+	>input {
+		border: none;
+		border-bottom: 1px solid rgba(128, 128, 128, 0.76);
+		width: 15vmax;
+		font-size: 1.1vmax;
+		outline: none;
+		color: $color_3;
+		font-weight: 100;
+	}
+	>svg {
+		fill: rgb(61, 61, 61);
+	}
+}
+
+
+
+//select
+
+$color_1: #fff;
+$color_2: #f39c12;
+$color_3: var(--gray);
+$background-color_1: var(--darkgray);
+$background-color_2: #34495e;
+
+/* Remove IE arrow */
+/* Custom Select wrapper */
+/* Arrow */
+/* Transition */
+/* Other styles*/
+:root {
+	
+	--gray: #34495e;
+	--darkgray: #2c3e50;
+}
+select {
+	appearance: none;
+	outline: 0;
+	border: 0;
+	box-shadow: none;
+	flex: 1;
+	padding: 0 1em;
+	color: $color_1;
+	background-color: $background-color_1;
+	background-image: none;
+	cursor: pointer;
+	&::-ms-expand {
+		display: none;
+	}
+}
+.select {
+	position: relative;
+	display: flex;
+	width: 20em;
+	height: 3em;
+	border-radius: .25em;
+	overflow: hidden;
+	&::after {
+		content: '\25BC';
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 1em;
+		background-color: $background-color_2;
+		transition: .25s all ease;
+		pointer-events: none;
+	}
+	&:hover {
+		&::after {
+			color: $color_2;
+		}
+	}
+}
+body {
+	color: $color_1;
+	background: var(--background-gradient);
+}
+h1 {
+	margin: 0 0 0.25em;
+}
+a {
+	font-weight: bold;
+	color: $color_3;
+	text-decoration: none;
+	padding: .25em;
+	border-radius: .25em;
+	background: white;
+}
+.selects{
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .nav{
+        align-items:end;
+        // margin-left: 10rem;
+        justify-content: right;
+    }
+}
