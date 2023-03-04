@@ -127,7 +127,7 @@ exports.updateProfile = (async (req, res, next) => {
             username : req.body.username,
             avatar : req.body.avatar
 	};
-    console.log(newUserData)
+    console.log()
     
 
                 const user = await User.findByIdAndUpdate(req.user.id, newUserData, {

@@ -55,7 +55,6 @@ const UserAccount = () => {
       formData.append("upload_preset", "flight-booking");
 
       toast.warn("Uploading the Profile Picture");
-      console.log(formData);
       const { data } = await axios.post(
         "https://api.cloudinary.com/v1_1/kapil4457/image/upload",
         formData
@@ -65,7 +64,6 @@ const UserAccount = () => {
           public_id: data?.public_id,
           url: data?.url,
         };
-        console.log("thisData : ", thisData);
         setNewAvatar(thisData);
         setAvatar(thisData);
         toast.success("Profile Picture Uploaded Successfully!!");
@@ -85,8 +83,8 @@ const UserAccount = () => {
         email,
         username,
         avatar: {
-          public_id: newAvatar.public_id,
-          url: newAvatar.url,
+          public_id: newAvatar?.public_id,
+          url: newAvatar?.url,
         },
       };
       toast.warning("Updating Info...Please Wait");
