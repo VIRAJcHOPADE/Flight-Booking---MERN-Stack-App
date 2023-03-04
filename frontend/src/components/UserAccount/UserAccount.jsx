@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./UserAccount.scss";
 import { toast } from "react-toastify";
+import FlightCard from "../FlightCard/FlightCard";
+import TourCard from "../TourCard/TourCard";
 const UserAccount = () => {
   const [user, setUser] = useState();
 
@@ -96,18 +98,292 @@ const UserAccount = () => {
       }
     }, 3000);
   };
+
+  // const dummyFlights = [];
+  const dummyFlights = [
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+    {
+      company: "AirAsia",
+      from: "Pune",
+      to: "Mumbai",
+      departure: "12/03/2022",
+      landing: "12/03/2022",
+      departureTime: "12:00 AM",
+      landingTime: "04:00 AM",
+      ticketPrice: 1200,
+    },
+  ];
+
+  const dummyTours = [
+    {
+      name: "Goa Tour",
+      destination: "Goa",
+      image: {
+        public_id: "1234",
+        url: "tempPic",
+      },
+      packagePrice: 12000,
+      flights: {
+        company: "AirAsia",
+        from: "Pune",
+        to: "Mumbai",
+        departure: "12/03/2022",
+        landing: "12/03/2022",
+        departureTime: "12:00 AM",
+        landingTime: "04:00 AM",
+        ticketPrice: 1200,
+      },
+      hotelDetails: {
+        name: "5 Star Hotel",
+        destination: "Goa",
+        roomPrice: 1200,
+      },
+      eventDetails: [
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+      ],
+    },
+    {
+      name: "Goa Tour",
+      destination: "Goa",
+      image: {
+        public_id: "1234",
+        url: "tempPic",
+      },
+      packagePrice: 12000,
+      flights: {
+        company: "AirAsia",
+        from: "Pune",
+        to: "Mumbai",
+        departure: "12/03/2022",
+        landing: "12/03/2022",
+        departureTime: "12:00 AM",
+        landingTime: "04:00 AM",
+        ticketPrice: 1200,
+      },
+      hotelDetails: {
+        name: "5 Star Hotel",
+        destination: "Goa",
+        roomPrice: 1200,
+      },
+      eventDetails: [
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+      ],
+    },
+    {
+      name: "Goa Tour",
+      destination: "Goa",
+      image: {
+        public_id: "1234",
+        url: "tempPic",
+      },
+      packagePrice: 12000,
+      flights: {
+        company: "AirAsia",
+        from: "Pune",
+        to: "Mumbai",
+        departure: "12/03/2022",
+        landing: "12/03/2022",
+        departureTime: "12:00 AM",
+        landingTime: "04:00 AM",
+        ticketPrice: 1200,
+      },
+      hotelDetails: {
+        name: "5 Star Hotel",
+        destination: "Goa",
+        roomPrice: 1200,
+      },
+      eventDetails: [
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+      ],
+    },
+    {
+      name: "Goa Tour",
+      destination: "Goa",
+      image: {
+        public_id: "1234",
+        url: "tempPic",
+      },
+      packagePrice: 12000,
+      flights: {
+        company: "AirAsia",
+        from: "Pune",
+        to: "Mumbai",
+        departure: "12/03/2022",
+        landing: "12/03/2022",
+        departureTime: "12:00 AM",
+        landingTime: "04:00 AM",
+        ticketPrice: 1200,
+      },
+      hotelDetails: {
+        name: "5 Star Hotel",
+        destination: "Goa",
+        roomPrice: 1200,
+      },
+      eventDetails: [
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+      ],
+    },
+    {
+      name: "Goa Tour",
+      destination: "Goa",
+      image: {
+        public_id: "1234",
+        url: "tempPic",
+      },
+      packagePrice: 12000,
+      flights: {
+        company: "AirAsia",
+        from: "Pune",
+        to: "Mumbai",
+        departure: "12/03/2022",
+        landing: "12/03/2022",
+        departureTime: "12:00 AM",
+        landingTime: "04:00 AM",
+        ticketPrice: 1200,
+      },
+      hotelDetails: {
+        name: "5 Star Hotel",
+        destination: "Goa",
+        roomPrice: 1200,
+      },
+      eventDetails: [
+        {
+          name: "Zumba",
+          destination: "Goa",
+          eventPrice: 1200,
+        },
+      ],
+    },
+  ];
   return (
-    <div className="content color-change user-details">
-      {user?.success == true ? (
+    <>
+      <div className="content color-change user-details">
+        {/* {user?.success == true ? (   ) : ( 
+      <div className="color-change login-request ">
+        // Please Login to access this Page //{" "}
+      </div>
+       )} */}
         <div className="user-details-cont">
           <button className="updateDetails" onClick={activateUserProfile}>
             Update User Details
           </button>
           <div className="user-avatar">
-            <img src={avatar?.url} alt="" />
+            <img
+              src={avatar?.url}
+              alt=""
+              style={{ borderRadius: "50%", objectFit: "contain" }}
+            />
             <div className="profile-pic-input">
               <input type="file" onChange={handleFile} />
-              <button>Change Profile Picture</button>
+              <button
+                style={{
+                  display: change == true ? "none" : "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                Change Profile Picture
+              </button>
             </div>
           </div>
 
@@ -156,12 +432,39 @@ const UserAccount = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <div className="color-change login-request ">
-          Please Login to access this Page
+      </div>
+      <div className="content color-change my-flights">
+        <h2>My Flights</h2>
+        <div className="all-flights">
+          {dummyFlights?.length == 0 ? (
+            <div className="no-flights">
+              You don't have any flights booked yet
+            </div>
+          ) : (
+            <div className="flight-main-cards">
+              {dummyFlights?.map((flight, key) => (
+                <FlightCard key={key} item={flight} />
+              ))}
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+
+      <div className=" content color-change my-tours">
+        <h2>My Tours</h2>
+        <div className="all-tours">
+          {dummyFlights?.length == 0 ? (
+            <div className="no-tours">You don't have any Tours booked yet</div>
+          ) : (
+            <div className="tour-main-cards">
+              {dummyTours?.map((tour, key) => (
+                <TourCard key={key} item={tour} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 

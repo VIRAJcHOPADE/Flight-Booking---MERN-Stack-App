@@ -1,0 +1,28 @@
+.tour-card{
+    box-shadow:0 0 10px 0 rgba(0,0,0,0.2);
+    border-radius:10px;
+transition: all 0.2s;
+    &:hover{
+        box-shadow:  0 0 20px 0 rgba(0,0,0,0.2);
+        transform: scale(1.01);
+    }
+    img{
+        height:20rem;
+        width:100%;
+        border-radius:10px 10px 0  0 ;
+    }
+    div{
+        padding:1rem;
+
+        p{
+            display:grid;
+            grid-template-columns: 50% 50%;
+            overflow: hidden;
+            .events-map{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+}

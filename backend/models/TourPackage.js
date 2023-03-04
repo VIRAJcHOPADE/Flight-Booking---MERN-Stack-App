@@ -27,11 +27,13 @@ const tourSchema = new mongoose.Schema({
             ref:"Hotels"
         }
     ,
-    eventDetails : 
+    eventDetails :
+    [
         {
             type : mongoose.Schema.Types.ObjectId,
             ref:"Event"
         }
+    ] 
     
 	
 	

@@ -128,6 +128,7 @@ const SideMenu = () => {
                 onClick={() => {
                   document.querySelector("body").classList.toggle("dark");
                   document
+                    .querySelector("body")
                     .querySelector(".color-change")
                     .classList.toggle("dark-color");
                   if (

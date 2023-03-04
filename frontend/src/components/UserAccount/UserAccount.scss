@@ -128,3 +128,37 @@ width:100%;
     }
 
 }
+
+
+.my-flights , .my-tours{
+
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+    min-height:10vh;
+    h2{
+        padding-left:2rem;
+        font-size:3rem;
+        color:rgba(0,0,0,0.5)
+    }
+
+    .all-flights , .all-tours{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:30vh;
+        color:red;
+        .no-flights , .no-tours{
+            font-weight:550;
+            font-size:2rem;
+
+        }
+        .flight-main-cards ,.tour-main-cards{
+            width:100%;
+            padding:2rem;
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:2rem
+        }
+    }
+}
