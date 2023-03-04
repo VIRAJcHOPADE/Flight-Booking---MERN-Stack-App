@@ -74,6 +74,7 @@ export const LoginAndOut = () => {
     <div className="login-body">
       <div>
         <section class="wrapper">
+
           <div
             class="form signup"
             onClick={() => {
