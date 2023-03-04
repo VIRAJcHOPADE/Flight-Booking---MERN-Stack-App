@@ -17,10 +17,11 @@ exports.registerUser = (async (req, res, next) => {
             role = "admin";
         }
         
-        const { name, email, password ,avatar} = req.body;
+        const { username , name, email, password ,avatar} = req.body;
         
         const user = await User.create({
             name,
+            username,
             email,
             password,
             role,
@@ -29,7 +30,7 @@ exports.registerUser = (async (req, res, next) => {
         
         sendToken(user, 201, res);
     }catch(err) {
-       await  res.send({success:false  , message : err.stack});
+       await  res.send({success:false  , message : "User Already Exists with this email"});
     }
     });
 
@@ -137,6 +138,17 @@ exports.updateProfile = (async (req, res, next) => {
               await   res.status(400).send({success : false , message : err.message})
             }
 });
+
+// Get User details
+
+exports.getUserDetails = async(req,res,next)=>{
+    try{
+        const user = await User.findById(req.user.id);
+      await   res.status(200).send({success:true , user})
+    }catch(error){
+      await  res.status(400).send({success : false , message : "Please Login"})
+    }
+}
 
 // Get All Users
 

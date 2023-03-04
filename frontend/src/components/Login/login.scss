@@ -10,12 +10,12 @@ $font-family_1: "Poppins", sans-serif;
 	box-sizing: border-box;
 	font-family: $font-family_1;
 }
-body {
+.login-body {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #f0faff;
+	background: transparent;
 }
 .wrapper {
 	position: relative;
@@ -158,6 +158,7 @@ form {
 		color: $color_2;
 		border-radius: 8px;
 		background: #fff;
+
 	}
 }
 }
@@ -197,4 +198,3 @@ and (max-device-width: 1024px) {
 	}
 }
 }
-
