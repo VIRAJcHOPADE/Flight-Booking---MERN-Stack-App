@@ -10,7 +10,6 @@ import UserAccount from './components/UserAccount/UserAccount';
 function App() {
   return (
     <div className="App">
-{/* <SideBar/> */}
 <SideMenu/>
 <Routes>
   <Route path="/" element={<Home />} />

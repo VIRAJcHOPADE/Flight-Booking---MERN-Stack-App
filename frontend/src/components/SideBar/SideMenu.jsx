@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../../auth/isAuthenticated";
 import { toast } from "react-toastify";
 import "./SideMenu.scss";
-import { Flight } from "@mui/icons-material";
 import { NavLink, useNavigate } from "react-router-dom";
 const SideMenu = () => {
   const navigate = useNavigate();
@@ -128,6 +127,9 @@ const SideMenu = () => {
                 class="toggle-switch"
                 onClick={() => {
                   document.querySelector("body").classList.toggle("dark");
+                  document
+                    .querySelector(".color-change")
+                    .classList.toggle("dark-color");
                   if (
                     document.querySelector("body").classList.contains("dark")
                   ) {

@@ -26,11 +26,12 @@ const userSchema = new mongoose.Schema({
 	avatar: {
 		public_id: {
 			type: String,
-			required: true,
+			default  : "1234",
+			
 		},
 		url: {
 			type: String,
-			required: true,
+			default: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
 		},
 	},
 	role: {

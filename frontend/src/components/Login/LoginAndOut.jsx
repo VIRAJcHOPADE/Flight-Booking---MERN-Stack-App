@@ -30,10 +30,6 @@ export const LoginAndOut = () => {
       password: signupPassword,
       email: signupEmail,
       username: signupUserName,
-      avatar: {
-        public_id: "1234",
-        url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      },
     };
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.post("/api/v1/register", info, config);
@@ -74,7 +70,6 @@ export const LoginAndOut = () => {
     <div className="login-body">
       <div>
         <section class="wrapper">
-
           <div
             class="form signup"
             onClick={() => {

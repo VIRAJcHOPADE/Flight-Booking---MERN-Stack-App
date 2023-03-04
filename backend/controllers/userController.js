@@ -17,7 +17,7 @@ exports.registerUser = (async (req, res, next) => {
             role = "admin";
         }
         
-        const { username , name, email, password ,avatar} = req.body;
+        const { username , name, email, password } = req.body;
         
         const user = await User.create({
             name,
@@ -25,7 +25,7 @@ exports.registerUser = (async (req, res, next) => {
             email,
             password,
             role,
-            avatar
+            
         });
         
         sendToken(user, 201, res);
@@ -124,7 +124,10 @@ exports.updateProfile = (async (req, res, next) => {
         const newUserData = {
             name: req.body.name,
             email: req.body.email,
+            username : req.body.username,
+            avatar : req.body.avatar
 	};
+    console.log(newUserData)
     
 
                 const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
@@ -135,7 +138,7 @@ exports.updateProfile = (async (req, res, next) => {
                 
               await  res.status(200).json({ success: true , user : user});
             }catch(err){
-              await   res.status(400).send({success : false , message : err.message})
+              await   res.status(200).send({success : false , message : err.message})
             }
 });
 
@@ -144,9 +147,9 @@ exports.updateProfile = (async (req, res, next) => {
 exports.getUserDetails = async(req,res,next)=>{
     try{
         const user = await User.findById(req.user.id);
-      await   res.status(200).send({success:true , user})
+     return await  res.status(200).send({success:true , user})
     }catch(error){
-      await  res.status(400).send({success : false , message : "Please Login"})
+    return  await  res.status(400).send({success : false , message : "Please Login"})
     }
 }
 

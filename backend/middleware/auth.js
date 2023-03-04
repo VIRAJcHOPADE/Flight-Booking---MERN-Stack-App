@@ -7,7 +7,7 @@ exports.isAuthenticatedUser = (async(req,res,next)=>{
 
         const {token} = req.cookies;
         if(!token){
-            res.status(401).send({success:false , message : "Please Login to access this page"})
+            res.status(200).send({success:false , message : "Please Login to access this page"})
         return ;
     }
     const decodedData = jwt.verify(token , "nadfvcnsdcsvsdjvjsd");
@@ -23,7 +23,7 @@ exports.isAuthenticatedUser = (async(req,res,next)=>{
 exports.authorizeRole = (...roles)=>{
     return (req,res,next)=>{{
         if(!roles.includes(req.user.role)){
-            res.status(403).send({success : false  , message : `Role  : ${req.user.role} is not allowed to access this resource`})
+            res.status(200).send({success : false  , message : `Role  : ${req.user.role} is not allowed to access this resource`})
           return
         }
         else{

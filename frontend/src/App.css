@@ -1,7 +1,16 @@
 .content {
   padding-left: 7rem;
+  min-height: 100vh;
 }
 
 .content-big {
   padding-left: 17rem;
+}
+
+.color-change {
+  color: black !important;
+}
+
+.dark-color {
+  color: white !important;
 }
