@@ -436,7 +436,7 @@ const UserAccount = () => {
       <div className="content color-change my-flights">
         <h2>My Flights</h2>
         <div className="all-flights">
-          {dummyFlights?.length == 0 ? (
+          {user?.user?.flights?.length == 0 ? (
             <div className="no-flights">
               You don't have any flights booked yet
             </div>
@@ -453,7 +453,7 @@ const UserAccount = () => {
       <div className=" content color-change my-tours">
         <h2>My Tours</h2>
         <div className="all-tours">
-          {dummyFlights?.length == 0 ? (
+          {user?.user?.tourPackage?.length == 0 ? (
             <div className="no-tours">You don't have any Tours booked yet</div>
           ) : (
             <div className="tour-main-cards">
