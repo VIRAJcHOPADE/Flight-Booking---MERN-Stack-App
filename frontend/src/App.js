@@ -9,6 +9,13 @@ import SideMenu from './components/SideBar/SideMenu';
 import UserAccount from './components/UserAccount/UserAccount';
 import { Contacts } from './components/Contact/Contacts';
 import { Tours } from './components/Tour/Tours';
+import TourDescription from './components/TourDescription/TourDescription';
+
+
+// Stripe API
+// Password : jahnviKangle@1234
+// Email  : janhvikangle@gmail.com
+
 
 function App() {
   return (
@@ -20,6 +27,7 @@ function App() {
   <Route path="/me" element={<UserAccount />} />
   <Route path="/contact" element={<Contacts />} />
   <Route path="/tour" element={<Tours />} />
+  <Route path="/tours/:id" element={<TourDescription />} />
 </Routes>
 
 <ToastContainer />

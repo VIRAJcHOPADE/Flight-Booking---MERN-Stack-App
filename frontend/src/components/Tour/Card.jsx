@@ -1,11 +1,15 @@
 import React from "react";
 import "./tours.scss";
+import { useNavigate } from "react-router-dom";
 export const Card = ({ item }) => {
-  console.log(item);
+  const navigate = useNavigate();
+  const redirectPage = async () => {
+    navigate(`/tours/${item?._id}`);
+  };
   return (
     <div>
       <div class="card">
-        <img src={item?.image} class="card__image" alt="" />
+        <img src={item?.image?.url} class="card__image" alt="" />
         <div class="card__overlay">
           <div class="card__header">
             <div class="card__header-text">
@@ -30,7 +34,9 @@ export const Card = ({ item }) => {
             </div>
             <div class="card__description">
               <div>
-                <button class="custom-btn btn-10">Read More</button>
+                <button class="custom-btn btn-10" onClick={redirectPage}>
+                  Read More
+                </button>
               </div>
             </div>
           </div>

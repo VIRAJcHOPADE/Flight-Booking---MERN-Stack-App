@@ -66,11 +66,29 @@ await res.status(200).send({success:true , tours})
        await   res.send({success : false  , message : err.message})
       }
     })
-    exports.getAllTours = (async(req,res,next)=>{
+
+
+exports.getAllTours = (async(req,res,next)=>{
       try{
          
 const tours = await Tour.find();
 await res.status(200).send({success:true , tours})
+
+      }catch(err){
+       await   res.send({success : false  , message : err.message})
+      }
+    })
+
+
+exports.getSingleTour = (async(req,res,next)=>{
+      try{
+         const id = req.params.id
+const tour = await Tour.findById(id);
+await tour.populate("eventDetails")
+await tour.populate("hotelDetails")
+await tour.populate("flights")
+tour.save()
+await res.status(200).send({success:true , tour})
 
       }catch(err){
        await   res.send({success : false  , message : err.message})
