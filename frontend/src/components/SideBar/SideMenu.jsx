@@ -90,6 +90,13 @@ const SideMenu = () => {
                   <span class="text nav-text">Tour</span>
                 </NavLink>
               </li>
+
+              <li class="nav-link">
+                <NavLink to="/contact">
+                  <i class="bx bx-phone icon"></i>
+                  <span class="text nav-text">Contact Us</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
 
