@@ -5,6 +5,26 @@ $font-family_2: "MockFlowFont";
 $background-color_1: #fef8f8;
 $background-color_2: var(--surface-color);
 
+
+.content{
+	.searchBar{
+		width:100%;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		padding:2rem;
+
+		input{
+			width:30%;
+			height:3rem;
+			padding:1rem;
+			border-radius:30px;
+			outline:none;
+			border:none;
+		}
+	}
+}
+
 :root {
 	--surface-color: #fff;
 	--curve: 40;
@@ -15,7 +35,7 @@ $background-color_2: var(--surface-color);
 
 .cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(4, minmax(300px, 1fr));
 	gap: 2rem;
 	margin: 4rem 6vw;
     margin-left: 100px;
@@ -24,6 +44,27 @@ $background-color_2: var(--surface-color);
 }
 
 
+@media all and (max-width : 1500px){
+	.cards{
+		grid-template-columns: repeat(3, 1fr);
+
+	}
+
+}
+@media all and (max-width : 1300px){
+	.cards{
+		grid-template-columns: repeat(2, 1fr);
+
+	}
+
+}
+@media all and (max-width : 800px){
+	.cards{
+		grid-template-columns: repeat(1, 1fr);
+
+	}
+
+}
 
 
 .card {
@@ -135,7 +176,7 @@ button {
 }
 
 .custom-btn {
-  width: 110px;
+  width: 120px;
   height: 40px;
   color: #fff;
   border-radius: 5px;

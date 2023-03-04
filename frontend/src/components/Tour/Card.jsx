@@ -1,27 +1,15 @@
 import React from "react";
 import "./tours.scss";
-export const Card = () => {
+export const Card = ({ item }) => {
+  console.log(item);
   return (
     <div>
-      <a href="" class="card">
-        <img
-          src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-          class="card__image"
-          alt=""
-        />
+      <div class="card">
+        <img src={item?.image} class="card__image" alt="" />
         <div class="card__overlay">
           <div class="card__header">
-            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-              <path />
-            </svg>
-            <img
-              class="card__thumb"
-              src="https://i.imgur.com/7D7I6dI.png"
-              alt=""
-            />
             <div class="card__header-text">
-              <h3 class="card__title">Unwind in Thailand</h3>
-              <span class="card__status">5N/6D</span>
+              <h3 class="card__title">{item?.name}</h3>
             </div>
           </div>
           <div class="disc">
@@ -42,15 +30,15 @@ export const Card = () => {
             </div>
             <div class="card__description">
               <div>
-                <button class="custom-btn btn-10">Book Now</button>
+                <button class="custom-btn btn-10">Read More</button>
               </div>
             </div>
           </div>
           <div class="card__description bottomdis">
-            <span class="pricet">Price: ₹45,345</span>
+            <span class="pricet">Price: ₹{item?.packagePrice}</span>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
