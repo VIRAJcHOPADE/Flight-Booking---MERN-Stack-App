@@ -9,9 +9,9 @@ export const Contacts = () => {
 
   const sendQuery = async () => {
     const data = {
-      service_id: "service_mie5gh2",
-      template_id: "template_gzm7cqd",
-      user_id: "vnb3zaM-_8_46Mx5m",
+      service_id: "service_ee139zc",
+      template_id: "template_o9vhii4",
+      user_id: "bskD6lR7_3-3aCcTX",
       template_params: {
         name: name,
         email: email,

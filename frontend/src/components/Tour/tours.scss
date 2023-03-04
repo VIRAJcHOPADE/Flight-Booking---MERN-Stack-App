@@ -12,10 +12,7 @@ $background-color_2: var(--surface-color);
 * {
 	box-sizing: border-box;
 }
-body {
-	font-family: $font-family_1;
-	background-color: $background-color_1;
-}
+
 .cards {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
