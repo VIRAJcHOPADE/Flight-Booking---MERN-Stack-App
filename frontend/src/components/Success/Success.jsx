@@ -1,10 +1,16 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Success.scss";
+
 const Success = () => {
+  const navigate = useNavigate();
   const bookingFunc = async () => {
     try {
+      if (!localStorage.getItem("booking")) {
+        navigate("/");
+      }
       const config = { headers: { "Content-Type": "application/json" } };
       var booking = JSON.parse(localStorage.getItem("booking"));
       console.log("booking", booking);
@@ -31,10 +37,10 @@ const Success = () => {
     } catch (err) {}
   };
   useEffect(() => {
-    // bookingFunc();
+    bookingFunc();
   }, []);
   return (
-    <div className="content">
+    <div className="content content-check green" style={{ color: "green" }}>
       <i className="bx bx-check-circle icon"></i>
       Booking SuccessFull !!
       <div className="color-change">(You will soon receive an Email)</div>
