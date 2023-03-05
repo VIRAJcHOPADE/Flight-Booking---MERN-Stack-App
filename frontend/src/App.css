@@ -1,3 +1,6 @@
+* {
+  transition: all 0.2s;
+}
 .content {
   padding-left: 7rem;
   min-height: 100vh;
@@ -13,4 +16,10 @@
 
 .dark-color {
   color: white !important;
+}
+
+@media all and (max-width: 1100px) and (max-height: 900px) {
+  .content {
+    padding: 0;
+  }
 }

@@ -67,3 +67,14 @@ $background-color_1: #f1f1f1;
 
 }
 
+
+
+@media all and (max-width:1100px) and (max-height:900px){
+	.main-contact .contact-form{
+		width:100%;
+	}
+
+	.main-contact .contact-form .contact-info div{
+		padding:0;
+	}
+}
