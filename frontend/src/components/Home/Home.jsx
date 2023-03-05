@@ -3,20 +3,20 @@ import Slider from "./Slider";
 // import Footer from './footer/Footer'
 import "../Tour/tours.scss";
 import "./Home.scss";
+import { Card } from "../Tour/Card";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({ img }) => <img className="card" src={img} alt="cover" />;
-
-const Row = ({ title, arr = [] }) => {
+const Row = ({ item }) => {
+  const navigate = useNavigate();
+  const redirectPage = async () => {
+    navigate(`/tours/${item?._id}`);
+  };
   return (
     <div>
       <div className="row">
         <div>
           <a href="" class="card card-2">
-            <img
-              src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              class="card__image"
-              alt=""
-            />
+            <img src={item?.image?.url} class="card__image" alt="" />
             <div class="card__overlay">
               <div class="card__header">
                 <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
@@ -28,8 +28,7 @@ const Row = ({ title, arr = [] }) => {
                   alt=""
                 />
                 <div class="card__header-text">
-                  <h3 class="card__title">Unwind in Thailand</h3>
-                  <span class="card__status">5N/6D</span>
+                  <h3 class="card__title">{item.name}</h3>
                 </div>
               </div>
               <div class="disc">
@@ -50,12 +49,14 @@ const Row = ({ title, arr = [] }) => {
                 </div>
                 <div class="card__description">
                   <div>
-                    <button class="custom-btn btn-10">Book</button>
+                    <button class="custom-btn btn-10" onClick={redirectPage}>
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="card__description bottomdis">
-                <span class="pricet">Price: ₹45,345</span>
+                <span class="pricet">Price: ₹{item?.packagePrice}</span>
               </div>
             </div>
           </a>
@@ -64,25 +65,25 @@ const Row = ({ title, arr = [] }) => {
     </div>
   );
 };
+
+const item = {
+  image: {
+    url: "https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+  },
+  name: "Goa Tour",
+  packagePrice: 12200,
+};
 export const Home = () => {
   return (
     <div className="content home-main">
       <Slider />
       <h2>Trending</h2>
       <div className="genreBox">
-        <Row />
-        <Row />
-        <Row />
-        <Row />
-        <Row />
+        <Row item={item} />
       </div>
       <h2>Latest</h2>
       <div className="genreBox">
-        <Row />
-        <Row />
-        <Row />
-        <Row />
-        <Row />
+        <Row item={item} />
       </div>
     </div>
   );
