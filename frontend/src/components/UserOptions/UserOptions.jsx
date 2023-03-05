@@ -35,7 +35,7 @@ const UserOptions = () => {
   const items = [
     {
       label: user ? "Logout" : "Login",
-      icon: user ? "pi-arrow-left" : "pi-arrow-right",
+      icon: user ? "pi-arrow-circle-up" : "pi-arrow-circle-down",
 
       command: () => {
         if (user) {

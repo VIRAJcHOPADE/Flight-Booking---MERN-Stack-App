@@ -14,7 +14,7 @@ import Success from './components/Success/Success';
 import Cancel from './components/Cancel/Cancel';
 import FlightPage from './components/FlightPage/FlightPage';
 import UserOptions from './components/UserOptions/UserOptions';
-
+import { Footer } from "./components/Home/footer/Footer";
 
 // Stripe API
 // Password : jahnviKangle@1234
@@ -38,6 +38,8 @@ function App() {
   <Route path="/cancel" element={<Cancel />} />
   
 </Routes>
+<Footer />
+
 
 <ToastContainer />
 

@@ -1,21 +1,13 @@
 
 #footer-we{
     text-align: center;
-    padding-bottom: 5%;
-	padding-top: 5%;
+    height:9rem;
 	background-color: #f8f8f885;
+    display: flex;;
+    justify-content: center;
+    align-items: center;
 	
 }
 .social-icons{
       padding: 10px;
 }
-
-// @media (max-width: 95em) {
-// 	.container {
-// 		max-width: 40rem;
-// 		padding: 0 3.2rem;
-// 	}
-// 	.navbar-lists {
-// 		gap: 3.4rem;
-// 	}
-// }
