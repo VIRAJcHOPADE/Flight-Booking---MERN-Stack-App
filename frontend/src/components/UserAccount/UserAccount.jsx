@@ -4,7 +4,10 @@ import "./UserAccount.scss";
 import { toast } from "react-toastify";
 import FlightCard from "../FlightCard/FlightCard";
 import TourCard from "../TourCard/TourCard";
+import { useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 const UserAccount = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState();
 
   const [name, setName] = useState("");
@@ -13,9 +16,11 @@ const UserAccount = () => {
   const [avatar, setAvatar] = useState();
   const [file, setFiles] = useState(null);
   const [newAvatar, setNewAvatar] = useState();
+  const [success, setSuccess] = useState();
   const getUserDetails = async () => {
     const { data } = await axios.get("/api/v1/me");
     setUser(data);
+    setSuccess(data?.success);
     setName(data?.user?.name);
     setEmail(data?.user?.email);
     setUserName(data?.user?.username);
@@ -30,6 +35,11 @@ const UserAccount = () => {
   useEffect(() => {
     getUserDetails();
   }, []);
+  useEffect(() => {
+    if (success == false) {
+      navigate("/login");
+    }
+  }, [success]);
 
   const handleFile = (e) => {
     const files = Array.from(e.target.files);
@@ -102,113 +112,117 @@ const UserAccount = () => {
 
   return (
     <>
-      <div className="content color-change user-details">
-        {/* {user?.success == true ? (   ) : ( 
-      <div className="color-change login-request ">
-        // Please Login to access this Page //{" "}
-      </div>
-       )} */}
-        <div className="user-details-cont">
-          <button className="updateDetails" onClick={activateUserProfile}>
-            Update User Details
-          </button>
-          <div className="user-avatar">
-            <img
-              src={avatar?.url}
-              alt=""
-              style={{ borderRadius: "50%", objectFit: "contain" }}
-            />
-            <div className="profile-pic-input">
-              <input type="file" onChange={handleFile} />
-              <button
-                style={{
-                  display: change == true ? "none" : "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Change Profile Picture
+      {name ? (
+        <>
+          <div className="content color-change user-details">
+            <div className="user-details-cont">
+              <button className="updateDetails" onClick={activateUserProfile}>
+                Update User Details
               </button>
+              <div className="user-avatar">
+                <img
+                  src={avatar?.url}
+                  alt=""
+                  style={{ borderRadius: "50%", objectFit: "contain" }}
+                />
+                <div className="profile-pic-input">
+                  <input type="file" onChange={handleFile} />
+                  <button
+                    style={{
+                      display: change == true ? "none" : "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    Change Profile Picture
+                  </button>
+                </div>
+              </div>
+
+              <div className="user-details-info">
+                <div className="user-info">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    disabled={change}
+                    value={name}
+                    className={change ? "" : "active-change"}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  ></input>
+                </div>
+                <div className="user-info">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    disabled={change}
+                    value={username}
+                    className={change ? "" : "active-change"}
+                    onChange={(e) => {
+                      setUserName(e.target.value);
+                    }}
+                  ></input>
+                </div>
+                <div className="user-info">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    disabled={change}
+                    value={email}
+                    className={change ? "" : "active-change color-change"}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="info-update">
+                  <button
+                    style={{ display: change == true ? "none" : "flex" }}
+                    onClick={createPoster}
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content color-change my-flights">
+            <h2>My Flights</h2>
+            <div className="all-flights">
+              {user?.user?.flights?.length == 0 ? (
+                <div className="no-flights">
+                  You don't have any flights booked yet
+                </div>
+              ) : (
+                <div className="flight-main-cards">
+                  {user?.user?.flights?.map((flight, key) => (
+                    <FlightCard key={key} item={flight} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="user-details-info">
-            <div className="user-info">
-              <label htmlFor="name">Name</label>
-              <input
-                disabled={change}
-                value={name}
-                className={change ? "" : "active-change"}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="user-info">
-              <label htmlFor="username">Username</label>
-              <input
-                disabled={change}
-                value={username}
-                className={change ? "" : "active-change"}
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="user-info">
-              <label htmlFor="email">Email</label>
-              <input
-                disabled={change}
-                value={email}
-                className={change ? "" : "active-change color-change"}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </div>
-            <div className="info-update">
-              <button>Forgot Passsword</button>
-              <button
-                style={{ display: change == true ? "none" : "flex" }}
-                onClick={createPoster}
-              >
-                Save
-              </button>
+          <div className=" content color-change my-tours">
+            <h2>My Tours</h2>
+            <div className="all-tours">
+              {user?.user?.tourPackage?.length == 0 ? (
+                <div className="no-tours">
+                  You don't have any Tours booked yet
+                </div>
+              ) : (
+                <div className="tour-main-cards">
+                  {user?.user?.tourPackage?.map((tour, key) => (
+                    <TourCard key={key} item={tour} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
+        </>
+      ) : (
+        <div className="content">
+          <Loading />
         </div>
-      </div>
-      <div className="content color-change my-flights">
-        <h2>My Flights</h2>
-        <div className="all-flights">
-          {user?.user?.flights?.length == 0 ? (
-            <div className="no-flights">
-              You don't have any flights booked yet
-            </div>
-          ) : (
-            <div className="flight-main-cards">
-              {user?.user?.flights?.map((flight, key) => (
-                <FlightCard key={key} item={flight} />
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className=" content color-change my-tours">
-        <h2>My Tours</h2>
-        <div className="all-tours">
-          {user?.user?.tourPackage?.length == 0 ? (
-            <div className="no-tours">You don't have any Tours booked yet</div>
-          ) : (
-            <div className="tour-main-cards">
-              {user?.user?.tourPackage?.map((tour, key) => (
-                <TourCard key={key} item={tour} />
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      )}
     </>
   );
 };

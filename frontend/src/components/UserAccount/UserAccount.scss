@@ -4,6 +4,7 @@
     align-items: center;
     height:100%;
     width:100%;
+    
 }
 
 
@@ -162,5 +163,50 @@ width:100%;
             grid-template-columns: repeat(4,1fr);
             gap:2rem
         }
+    }
+}
+
+
+@media all and (max-width: 1500px) and (max-height: 950px) {
+
+    .user-details-cont{
+        flex-direction: column;
+        width:100%;
+        padding-top:5rem;
+    }
+    .user-details-cont .user-details-info .user-info{
+        font-size:1rem
+    }
+    .user-details-cont .user-details-info .user-info input{
+        font-size:1rem
+    }
+    .my-flights .all-flights .flight-main-cards{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .my-tours .all-tours .tour-main-cards {
+        
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media all and (max-width: 1100px) and (max-height: 950px) {
+
+    
+    .my-flights .all-flights .flight-main-cards{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .my-tours .all-tours .tour-main-cards {
+        
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media all and (max-width: 500px) and (max-height: 950px) {
+    .my-flights .all-flights .flight-main-cards{
+        grid-template-columns: 1fr;
+    }
+    .my-tours .all-tours .tour-main-cards {
+        
+        grid-template-columns: 1fr;
     }
 }
