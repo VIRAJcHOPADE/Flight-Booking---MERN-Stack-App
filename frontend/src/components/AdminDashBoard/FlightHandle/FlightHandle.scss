@@ -1,0 +1,144 @@
+.admin-flight{
+    margin:3rem 0;
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+
+    .update-card{
+        background-color: rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        position:fixed;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        z-index: 9999999;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            position:fixed;
+            font-size:3rem;
+            color:red;
+            top:2rem;
+            right:2rem;
+            cursor:pointer;
+        }
+
+        .update-card-cont{
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+            background-color: #f8f8f885;
+            border-radius:10px;
+            display:flex;
+            gap:1rem;
+            min-width:30rem;
+            flex-direction: column;
+            padding:2rem;
+
+            .update-input{
+                display:flex;
+                flex-direction: column;
+                font-size:1.3rem;
+                input{
+                    border:none;
+                    outline:none;
+                    background-color: transparent;
+                    border-bottom:1px solid black;
+                    font-size:1.3rem;
+                }
+            }
+            button{
+                height:3rem;
+                width: 50%;;
+                align-self: center;
+                border-radius:10px;
+                outline:none;
+                font-weight:550;
+                font-size:1.2rem;
+                background-color: green;
+                color:white;
+                cursor:pointer;
+                border:none;
+
+            }
+        }
+    }
+    h1{
+        font-size:3rem;
+    }
+    .all-flight-admin{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        row-gap: 2rem;
+
+        .flight-card-admin{
+            padding:1rem;
+            border-radius:10px;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            width:90%;
+            background-color: #f8f8f885;
+            justify-self: center;
+            display:flex;
+            justify-content: space-between;
+
+            .update-button{
+                height:2.3rem;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+                cursor:pointer;
+                background-color: orange;
+                font-weight:550;
+                color:white;
+                padding:0.2rem;
+                width:6rem;
+                border-radius: 10px;
+            }
+
+        }
+
+
+    }
+}
+
+
+@media all and (max-width:1100px){
+    .admin-flight {
+
+        .update-card{
+            padding:2rem 0;
+            .update-card-cont{
+                min-width:60%;
+            }
+        }
+        .all-flight-admin{
+            grid-template-columns: repeat(2,1fr);
+        }
+
+    }
+}
+@media all and (max-width:800px){
+    .admin-flight {
+
+        .update-card{
+            padding:2rem 0;
+            .update-card-cont{
+                min-width:100%;
+            }
+        }
+        .all-flight-admin{
+            grid-template-columns: repeat(2,1fr);
+        }
+
+    }
+}
+
+@media all and (max-width:750px){
+    .admin-flight {
+        .all-flight-admin{
+            grid-template-columns: repeat(1,1fr);
+        }
+
+    }
+}
