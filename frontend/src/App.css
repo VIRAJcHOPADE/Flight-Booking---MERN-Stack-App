@@ -18,8 +18,9 @@
   color: white !important;
 }
 
-@media all and (max-width: 1100px) and (max-height: 900px) {
+@media all and (max-width: 1100px) and (max-height: 950px) {
   .content {
     padding: 0;
+    justify-content: left;
   }
 }

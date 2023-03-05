@@ -92,7 +92,6 @@ const TourDescription = () => {
           </div>
         </div>
       </div>
-
       <div className="suggestions">
         {suggestedTours?.map((suggTour, key) => (
           <Card item={suggTour} key={key} />
