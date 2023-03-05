@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import FlightHandleCard from "./FlightHandleCard";
 import "./FlightHandle.scss";
+
 const FlightHandle = () => {
   const [allFlights, setAllFlights] = useState(null);
   const [user, setUser] = useState(null);
@@ -153,10 +154,10 @@ const FlightHandle = () => {
                     key={key}
                     updateFunc={setUpdateCardDetails}
                     appearCard={appearCard}
-                  />
+                  />  
                 </>
               ))}
-            </div>
+            </div> 
           </div>
         </>
       ) : (
