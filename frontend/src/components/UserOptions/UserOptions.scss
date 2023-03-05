@@ -1,0 +1,16 @@
+.card-t {
+
+    position:absolute;
+    bottom:1rem;
+    right:2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    z-index:9999999
+}
+
+
+@media all and (min-width:1100px){
+    .card-t{
+        display:none;
+    }
+}

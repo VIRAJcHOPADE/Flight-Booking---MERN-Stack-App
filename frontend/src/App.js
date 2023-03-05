@@ -13,6 +13,7 @@ import TourDescription from './components/TourDescription/TourDescription';
 import Success from './components/Success/Success';
 import Cancel from './components/Cancel/Cancel';
 import FlightPage from './components/FlightPage/FlightPage';
+import UserOptions from './components/UserOptions/UserOptions';
 
 
 // Stripe API
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
 <SideMenu/>
+<UserOptions />
 <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<LoginAndOut />} />

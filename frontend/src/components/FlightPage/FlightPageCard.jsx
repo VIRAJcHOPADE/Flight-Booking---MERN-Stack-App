@@ -97,7 +97,7 @@ export const FlightPageCard = ({ item }) => {
           <div class="price">
             <span>Price: ₹{item.ticketPrice}</span>
           </div>
-          <button class="custom-btn btn-3">
+          <button class="custom-btn-2 btn-3">
             <span onClick={buyNow}>Buy Now</span>
           </button>
         </div>

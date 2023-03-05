@@ -140,19 +140,17 @@ $background-color_1: rgb(230, 232, 232);
 	padding: 10px;
 }
 .btns {
-	justify-content: end;
+	margin: 20px;
+	gap:1rem;
+	display:flex;
+	flex-direction: column;
 	padding-top: 20px;
 }
 .description {
 	width: 700px;
 }
-.price {
-	padding-left: 20px;
-}
-button {
-	margin: 20px;
-}
-.custom-btn {
+
+	.custom-btn-2 {
 	width: 130px;
 	height: 40px;
 	color: $color_4;
@@ -160,7 +158,6 @@ button {
 	padding: 10px 25px;
 	font-family: $font-family_4;
 	font-weight: 500;
-	background: transparent;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	position: relative;

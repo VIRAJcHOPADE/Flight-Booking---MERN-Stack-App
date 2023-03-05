@@ -1,6 +1,8 @@
 .tour-card{
     box-shadow:0 0 10px 0 rgba(0,0,0,0.2);
     border-radius:10px;
+    background-color: #f8f8f885;
+
 transition: all 0.2s;
     &:hover{
         box-shadow:  0 0 20px 0 rgba(0,0,0,0.2);
