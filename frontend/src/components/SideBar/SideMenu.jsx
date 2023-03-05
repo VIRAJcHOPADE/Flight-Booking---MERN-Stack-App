@@ -95,6 +95,12 @@ const SideMenu = () => {
                   <span className="text nav-text">Contact Us</span>
                 </NavLink>
               </li>
+              <li className="nav-link">
+                <NavLink to="/dashboard/users">
+                  <i className="bx bxs-dashboard icon"></i>
+                  <span className="text nav-text">DashBoard</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
 
