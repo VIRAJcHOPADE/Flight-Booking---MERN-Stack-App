@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
+import axios from "axios";
 // import Footer from './footer/Footer'
 import "../Tour/tours.scss";
 import "./Home.scss";
-import { Card } from "../Tour/Card";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 const Row = ({ item }) => {
   const navigate = useNavigate();
   const redirectPage = async () => {
@@ -73,17 +73,45 @@ const item = {
   name: "Goa Tour",
   packagePrice: 12200,
 };
+
 export const Home = () => {
+  const [latest, setLatest] = useState();
+  const [trending, setTrending] = useState();
+  const fetchLastest = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/get/latest/tours");
+      setLatest(data?.tours);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+  const fetchTrending = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/get/trending/tours");
+      setTrending(data?.tours);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchLastest();
+    fetchTrending();
+  }, []);
   return (
     <div className="content home-main">
       <Slider />
       <h2>Trending</h2>
       <div className="genreBox">
-        <Row item={item} />
+        {trending?.map((item) => (
+          <Row item={item} />
+        ))}
       </div>
       <h2>Latest</h2>
       <div className="genreBox">
-        <Row item={item} />
+        {latest?.map((item) => (
+          <Row item={item} />
+        ))}
       </div>
     </div>
   );

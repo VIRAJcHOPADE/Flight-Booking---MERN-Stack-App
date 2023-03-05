@@ -94,3 +94,23 @@ await res.status(200).send({success:true , tour})
        await   res.send({success : false  , message : err.message})
       }
     })
+
+exports.getTrendingTours = (async(req,res,next)=>{
+      try{
+        const tours = await Tour.find().sort({"packagePrice" : 1}).limit(7)
+await res.status(200).send({success:true , tours})
+
+      }catch(err){
+       await   res.send({success : false  , message : err.message})
+      }
+    })
+
+exports.getLatestTours = (async(req,res,next)=>{
+      try{
+        const tours = await Tour.find().limit(7)
+await res.status(200).send({success:true , tours})
+
+      }catch(err){
+       await   res.send({success : false  , message : err.message})
+      }
+    })
