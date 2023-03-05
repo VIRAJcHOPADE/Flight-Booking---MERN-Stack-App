@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./TourCard.scss";
 //  {
 //   name: "Goa Tour",
@@ -33,8 +34,12 @@ import "./TourCard.scss";
 // ];
 // },
 const TourCard = ({ item }) => {
+  const navigate = useNavigate();
+  const redirectTour = async () => {
+    navigate(`/tours/${item?._id}`);
+  };
   return (
-    <div className="tour-card color-change">
+    <div className="tour-card color-change" onClick={redirectTour}>
       <img src={item?.image?.url} alt="" />
       <div>
         <p>
@@ -48,20 +53,6 @@ const TourCard = ({ item }) => {
         <p>
           <b>Tour Price </b>
           {item?.packagePrice}
-        </p>
-        <p>
-          <b>Flight </b>
-          {item?.flights?.company}
-        </p>
-        <p>
-          <b>Hotel </b>
-          {item?.hotelDetails?.name}
-        </p>
-        <p>
-          <b>Events </b>
-          <span className="events-map">
-            {item?.eventDetails?.map((event) => event?.name + " , ")}
-          </span>
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { redirect, useNavigate, useParams } from "react-router-dom";
 import { Card } from "../Tour/Card";
 import "./TourDescription.scss";
 const TourDescription = () => {
@@ -33,7 +33,9 @@ const TourDescription = () => {
       tour.tour,
       config
     );
-    console.log(data);
+    const tourDet = JSON.stringify({ type: "tour", tour: tour?.tour });
+    localStorage.setItem("booking", tourDet);
+    window.location.href = data?.url;
   };
 
   useEffect(() => {

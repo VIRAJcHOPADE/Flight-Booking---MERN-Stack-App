@@ -10,6 +10,8 @@ import UserAccount from './components/UserAccount/UserAccount';
 import { Contacts } from './components/Contact/Contacts';
 import { Tours } from './components/Tour/Tours';
 import TourDescription from './components/TourDescription/TourDescription';
+import Success from './components/Success/Success';
+import Cancel from './components/Cancel/Cancel';
 
 
 // Stripe API
@@ -28,6 +30,8 @@ function App() {
   <Route path="/contact" element={<Contacts />} />
   <Route path="/tour" element={<Tours />} />
   <Route path="/tours/:id" element={<TourDescription />} />
+  <Route path="/success" element={<Success />} />
+  <Route path="/cancel" element={<Cancel />} />
   
 </Routes>
 

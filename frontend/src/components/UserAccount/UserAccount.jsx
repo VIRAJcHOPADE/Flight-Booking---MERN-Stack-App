@@ -20,6 +20,7 @@ const UserAccount = () => {
     setEmail(data?.user?.email);
     setUserName(data?.user?.username);
     setAvatar(data?.user?.avatar);
+    console.log(data);
   };
   const [change, setChange] = useState(true);
 
@@ -457,7 +458,7 @@ const UserAccount = () => {
             <div className="no-tours">You don't have any Tours booked yet</div>
           ) : (
             <div className="tour-main-cards">
-              {dummyTours?.map((tour, key) => (
+              {user?.user?.tourPackage?.map((tour, key) => (
                 <TourCard key={key} item={tour} />
               ))}
             </div>
