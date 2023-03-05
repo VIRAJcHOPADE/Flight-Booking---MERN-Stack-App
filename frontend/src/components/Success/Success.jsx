@@ -28,7 +28,9 @@ const Success = () => {
       } else {
         const { data } = await axios.post(
           "/api/v1/me/book/flight",
-          booking.flight,
+          {
+            flight: booking.flight._id,
+          },
           config
         );
         console.log(data);

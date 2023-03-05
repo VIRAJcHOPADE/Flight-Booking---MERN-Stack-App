@@ -24,18 +24,18 @@ const FlightPage = () => {
       const { data } = await axios.get(
         `/api/v1/search/flight?from=${from}&&to=${to}`
       );
-      console.log(data);
+      setFlights(data);
     } else {
       const { data } = await axios.get(
         `/api/v1/search/flight?keyword=${keyword}`
       );
-      console.log(data);
+      setFlights(data);
     }
   };
   useEffect(() => {
     fetchFlights();
 
-    if (to != "") {
+    if (to != "" || keyword != "") {
       searchFlights();
     }
     if (from != "") {
@@ -93,7 +93,10 @@ const FlightPage = () => {
           </div>
         </div>
       </div>
-      <FlightPageCard />
+
+      {flights?.flights?.map((flight) => (
+        <FlightPageCard item={flight} />
+      ))}
     </div>
   );
 };

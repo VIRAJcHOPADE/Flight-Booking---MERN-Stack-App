@@ -1,38 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./TourCard.scss";
-//  {
-//   name: "Goa Tour",
-//   image : {
-// public_id : "1234",
-// url : "tempPic"
-// }
-//   destination: "Goa",
-//   packagePrice: 12000,
-//   flights: {
-//     company: "AirAsia",
-//     from: "Pune",
-//     to: "Mumbai",
-//     departure: "12/03/2022",
-//     landing: "12/03/2022",
-//     departureTime: "12:00 AM",
-//     landingTime: "04:00 AM",
-//     ticketPrice: 1200,
-//   },
-//   hotelDetails: {
-//     name: "5 Star Hotel",
-//     destination: "Goa",
-//     roomPrice: 1200,
-//   },
-//   eventDetails:
-// [
-// {
-//     name: "Zumba",
-//     destination: "Goa",
-//     eventPrice: 1200,
-//   },
-// ];
-// },
+
 const TourCard = ({ item }) => {
   const navigate = useNavigate();
   const redirectTour = async () => {

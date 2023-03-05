@@ -4,7 +4,8 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 exports.stripeController = (async(req,res,next)=>{
 
     try{
-        const {name,packagePrice , _id , image} = req.body;
+        const {name,packagePrice  , image} = req.body;
+        console.log(name , packagePrice , image)
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types : ['card'],
