@@ -5,7 +5,6 @@ exports.stripeController = (async(req,res,next)=>{
 
     try{
         const {name,packagePrice  , image} = req.body;
-        console.log(name , packagePrice , image)
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types : ['card'],
