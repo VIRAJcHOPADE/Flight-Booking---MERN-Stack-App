@@ -6,8 +6,6 @@ export const Footer = () => {
     <>
       <div>
         <footer id="footer-we">
-          {/* <hr class="footer-hr" /> */}
-
           <i class="bx social-icons bxs-plane icon"></i>
           <i class="bx social-icons bx-building icon"></i>
           <i class="bx social-icons bx-walk icon"></i>

@@ -1,0 +1,15 @@
+.carousal_main{
+    overflow-y:hidden;
+    border-radius: 10px  ;
+
+    
+    .image{
+        border-radius: 10px ;
+        width: 100%;
+        object-fit: unset; 
+        overflow:hidden;
+        height:23rem;
+        
+
+    }
+}

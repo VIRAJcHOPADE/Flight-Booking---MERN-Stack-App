@@ -1,5 +1,4 @@
 import React from "react";
-// import { Homecard } from '../HomeCard/Homecard'
 import Slider from "./Slider";
 // import Footer from './footer/Footer'
 import "../Tour/tours.scss";
@@ -68,7 +67,6 @@ const Row = ({ title, arr = [] }) => {
 export const Home = () => {
   return (
     <div className="content home-main">
-      {/* <Homecard/> */}
       <Slider />
       <h2>Trending</h2>
       <div className="genreBox">
