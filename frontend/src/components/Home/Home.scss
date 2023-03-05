@@ -5,7 +5,7 @@
     >h2{
        font-weight: 400;
        color: aliceblue;
-       margin: 0.3rem;
+       
     }
    >div{
     display: flex;
@@ -13,9 +13,9 @@
     justify-content: center;
    }
 }
-
 .card-2{
-  width: 300px;
+    width: 300px;
+
 }
 .card{
     margin: 0.3rem;
@@ -59,3 +59,8 @@
 
 
 
+h2{
+  font-weight: 500;
+  text-align: center;
+  margin-top: 5%;
+}
