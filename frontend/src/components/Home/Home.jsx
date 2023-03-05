@@ -6,6 +6,7 @@ import "../Tour/tours.scss";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 const Row = ({ item }) => {
   const navigate = useNavigate();
   const redirectPage = async () => {
@@ -75,8 +76,8 @@ const item = {
 };
 
 export const Home = () => {
-  const [latest, setLatest] = useState();
-  const [trending, setTrending] = useState();
+  const [latest, setLatest] = useState(null);
+  const [trending, setTrending] = useState(null);
   const fetchLastest = async () => {
     try {
       const { data } = await axios.get("/api/v1/get/latest/tours");
@@ -99,20 +100,28 @@ export const Home = () => {
     fetchTrending();
   }, []);
   return (
-    <div className="content home-main">
-      <Slider />
-      <h2>Trending</h2>
-      <div className="genreBox">
-        {trending?.map((item) => (
-          <Row item={item} />
-        ))}
-      </div>
-      <h2>Latest</h2>
-      <div className="genreBox">
-        {latest?.map((item) => (
-          <Row item={item} />
-        ))}
-      </div>
-    </div>
+    <>
+      {latest == null || trending == null ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="content home-main">
+            <Slider />
+            <h2>Trending</h2>
+            <div className="genreBox">
+              {trending?.map((item) => (
+                <Row item={item} />
+              ))}
+            </div>
+            <h2>Latest</h2>
+            <div className="genreBox">
+              {latest?.map((item) => (
+                <Row item={item} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
 };

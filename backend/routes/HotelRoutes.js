@@ -6,7 +6,7 @@ const router = express.Router();
 router.route("/admin/create/hotel").post(isAuthenticatedUser , authorizeRole("admin"),createHotel);
 router.route("/admin/update/hotel").put(isAuthenticatedUser ,authorizeRole("admin"),updateHotel);
 router.route("/admin/delete/hotel").delete(isAuthenticatedUser , authorizeRole("admin") , deleteHotel);
-router.route("/search/hotel").get(isAuthenticatedUser , searchHotels);
+router.route("/search/hotel").get( searchHotels);
 module.exports = router;
 
 

@@ -1,14 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FlightPageCard } from "./FlightPageCard";
+import Loading from "../Loading/Loading";
 import "./FlightPage.scss";
 const FlightPage = () => {
   const [keyword, setKeyWord] = useState("");
-  const [flights, setFlights] = useState();
+  const [flights, setFlights] = useState(null);
 
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [allTos, setAllTos] = useState(null);
+  const [user, setUser] = useState(null);
+  const getUserDetails = async () => {
+    const { data } = await axios.get("/api/v1/me");
+    setUser(data);
+  };
   const fetchFlights = async () => {
     const { data } = await axios.get("/api/v1/all/flights");
     setFlights(data);
@@ -20,6 +26,7 @@ const FlightPage = () => {
   };
 
   const searchFlights = async () => {
+    setFlights(null);
     if (keyword == "") {
       const { data } = await axios.get(
         `/api/v1/search/flight?from=${from}&&to=${to}`
@@ -34,6 +41,7 @@ const FlightPage = () => {
   };
   useEffect(() => {
     fetchFlights();
+    getUserDetails();
 
     if (to != "" || keyword != "") {
       searchFlights();
@@ -94,11 +102,15 @@ const FlightPage = () => {
         </div>
       </div>
 
-      <div>
-        {flights?.flights?.map((flight) => (
-          <FlightPageCard item={flight} />
-        ))}
-      </div>
+      {flights == null ? (
+        <Loading />
+      ) : (
+        <div>
+          {flights?.flights?.map((flight) => (
+            <FlightPageCard item={flight} isAllowed={user?.success} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

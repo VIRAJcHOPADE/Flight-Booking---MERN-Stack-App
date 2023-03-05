@@ -9,10 +9,8 @@ const SideMenu = () => {
   const [user, setUser] = useState(null);
 
   const getUserDetails = async () => {
-    if (isAuthenticated) {
-      const { data } = await axios.get("/api/v1/me");
-      setUser(data?.user);
-    }
+    const { data } = await axios.get("/api/v1/me");
+    setUser(data?.user);
   };
 
   const LogoutHandler = async () => {
@@ -24,10 +22,8 @@ const SideMenu = () => {
     }, 3000);
   };
   useEffect(() => {
-    if (isAuthenticated) {
-      getUserDetails();
-    }
-  }, [isAuthenticated]);
+    getUserDetails();
+  }, []);
   return (
     <>
       <nav className="sidebar close">

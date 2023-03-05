@@ -2,10 +2,15 @@ import axios from "axios";
 import React from "react";
 import "./FlightPageCard.scss";
 import { toast } from "react-toastify";
-export const FlightPageCard = ({ item }) => {
-  console.log(item);
+export const FlightPageCard = ({ item, isAllowed }) => {
+  console.log(isAllowed);
   const buyNow = async (e) => {
+    if (isAllowed == false) {
+      toast.error("Please Login to Buy this ticket");
+      return;
+    }
     e.preventDefault();
+
     toast("Initializong Payment...");
 
     if (item?.seatsLeft == 0) {

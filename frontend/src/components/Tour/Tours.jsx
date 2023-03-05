@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./tours.scss";
 import { Card } from "./Card";
 import axios from "axios";
-
+import Loading from "../Loading/Loading";
 export const Tours = () => {
   const [keyword, setKeyWord] = useState("");
-  const [tours, setTours] = useState();
+  const [tours, setTours] = useState(null);
   const fetchTours = async () => {
+    setTours(null);
     if (keyword == "") {
       const { data } = await axios.get("/api/v1/get/all/tours");
       setTours(data);
@@ -30,15 +31,19 @@ export const Tours = () => {
           }}
         />
       </div>
-      <ul class="cards">
-        {tours?.tours?.map((tour) => (
-          <>
-            <li>
-              <Card item={tour} />
-            </li>
-          </>
-        ))}
-      </ul>
+      {tours == null ? (
+        <Loading />
+      ) : (
+        <ul class="cards">
+          {tours?.tours?.map((tour) => (
+            <>
+              <li>
+                <Card item={tour} />
+              </li>
+            </>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
