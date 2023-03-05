@@ -11,7 +11,7 @@ const Row = ({ title, arr = [] }) => {
     <div className="row">
       <h2>{title}</h2>
       <div>
-        <a href="" class="card">
+        <a href="" class="card card-2">
           <img
             src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
             class="card__image"

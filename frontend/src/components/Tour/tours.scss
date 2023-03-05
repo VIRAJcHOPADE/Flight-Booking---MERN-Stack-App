@@ -54,7 +54,11 @@ $background-color_2: var(--surface-color);
 @media all and (max-width : 1300px){
 	.cards{
 		grid-template-columns: repeat(2, 1fr);
+		margin: 4rem 6vw;
 
+	}
+	.content .searchBar input{
+		width:100%;
 	}
 
 }
