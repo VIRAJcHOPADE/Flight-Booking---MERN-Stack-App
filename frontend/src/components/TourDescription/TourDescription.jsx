@@ -61,7 +61,7 @@ const TourDescription = () => {
       {suggestedTours == null || tour == null ? (
         <Loading />
       ) : (
-        <div className="content">
+        <div className="content color-change">
           <div className="tour-info-cont">
             <img src={tour?.tour?.image?.url} alt="" />
             <div className="tour-info">
