@@ -18,7 +18,7 @@ $background-color_1: rgb(230, 232, 232);
 }
 .blog-card {
 	display: flex;
-	width:55rem;
+	width:58rem;
 	flex-direction: column;
 	box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1.6%;
@@ -86,6 +86,7 @@ $background-color_1: rgb(230, 232, 232);
 		}
 	}
 	.description {
+		width:70%;
 		.side-by-side{
 			width:100%;
 			display:grid;
@@ -252,6 +253,7 @@ $background-color_1: rgb(230, 232, 232);
 		flex-direction: column;
 		width:100%;
 		.description{
+			width:100%;
 			.side-by-side{
 				grid-template-columns: 1fr;
 			}

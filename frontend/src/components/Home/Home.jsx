@@ -105,7 +105,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <div className="content home-main">
+          <div className="content home-main color-change">
             <Slider />
             <h2>Trending</h2>
             <div className="genreBox">
