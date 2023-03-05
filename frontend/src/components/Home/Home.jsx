@@ -1,8 +1,9 @@
-import React from "react";
-// import SideBar from "../SideBar/SideBar";
-
-const Home = () => {
-  return <div>{/* <SideBar /> */}</div>;
-};
-
-export default Home;
+import React from 'react'
+// import { Homecard } from '../HomeCard/Homecard'
+export const Home = () => {
+  return (
+    <div>
+      {/* <Homecard/> */}
+    </div>
+  )
+}
