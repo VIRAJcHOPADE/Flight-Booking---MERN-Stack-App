@@ -4,7 +4,7 @@ import  {LoginAndOut}  from './components/Login/LoginAndOut';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Route , Routes} from 'react-router-dom'
-import Home from './components/Home/Home';
+import {Home} from './components/Home/Home';
 import SideMenu from './components/SideBar/SideMenu';
 import UserAccount from './components/UserAccount/UserAccount';
 import { Contacts } from './components/Contact/Contacts';
