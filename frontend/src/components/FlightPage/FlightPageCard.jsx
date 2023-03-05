@@ -1,5 +1,6 @@
 import React from "react";
 import "./FlightPageCard.scss";
+
 export const FlightPageCard = () => {
   return (
     <div>

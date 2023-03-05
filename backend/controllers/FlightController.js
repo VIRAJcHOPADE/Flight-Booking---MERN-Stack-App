@@ -46,12 +46,53 @@ exports.deleteFlight = (async (req, res, next) => {
 exports.searchFlights = (async (req, res, next) => {
    try{
 
-       const { from , to} = req.body;
-       let query = {from : from , to : to}
-      const flights = await Flight.find(query)
+       const { from , to , keyword} = req.query;
+
+
+
+       if(from && to){
+
+          
+          const flights = await Flight.find({$or : [{"from" : {'$regex' : '.*' + `${from}` + '.*' ,$options : 'i'}},
+       {"to" : {'$regex' : '.*' + `${to}` + '.*' ,$options : 'i'}},
+      ]});
+      
       await res.status(200).send({success : true ,flights})
+   }else if(keyword){
+       
+      const flights = await Flight.find({$or : [
+      {"company" : {'$regex' : '.*' + `${keyword}` + '.*' ,$options : 'i'}} ,
+      {"from" : {'$regex' : '.*' + `${keyword}` + '.*' ,$options : 'i'}} ,
+      {"to" : {'$regex' : '.*' + `${keyword}` + '.*' ,$options : 'i'}} ,
+     ]});
+     
+     await res.status(200).send({success : true ,flights})
+   }
       return;
    }catch(err) {
       await  res.send({success:false  , message : err.stack});
    }
    });
+
+
+   exports.getAllFlights = (async (req, res, next) => {
+      try{
+        const flights =await  Flight.find()
+         await res.status(200).send({success : true ,flights})
+         return;
+      }catch(err) {
+         await  res.send({success:false  , message : err.stack});
+      }
+      });
+
+
+      exports.getAllTos = (async (req, res, next) => {
+         try{
+            const {destination} = req.body;
+           const flights =await  Flight.find({destination:destination})
+            await res.status(200).send({success : true ,flights})
+            return;
+         }catch(err) {
+            await  res.send({success:false  , message : err.stack});
+         }
+         });

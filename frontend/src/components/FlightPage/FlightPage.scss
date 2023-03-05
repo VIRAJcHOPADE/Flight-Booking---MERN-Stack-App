@@ -1,0 +1,40 @@
+.nav{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	.searchBar-flight{
+		width:50%;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		padding:2rem;
+
+		input{
+			width:60%;
+			height:3rem;
+			padding:1rem;
+			border-radius:30px;
+			outline:none;
+			border:none;
+		}
+	}
+	.select-bars{
+		display:flex;
+		gap:2rem;
+
+		select{
+			width:10rem;
+			height:2rem;
+			border-radius:10px;
+			padding:0.2rem;
+			border:none;
+			outline:none;
+			cursor:pointer;
+			option{
+				border:none;
+				
+			}
+		}
+	}
+
+}
