@@ -146,9 +146,9 @@ $background-color_1: rgb(230, 232, 232);
 	flex-direction: column;
 	padding-top: 20px;
 }
-.description {
-	width: 700px;
-}
+// .description {
+// 	width: 700px;
+// }
 
 	.custom-btn-2 {
 	width: 130px;
@@ -244,35 +244,44 @@ $background-color_1: rgb(230, 232, 232);
 	box-shadow: 0px 2px 2px rgb(236, 170, 129);
 	font-size: 12px;
 }
-@media (min-width: 640px) {
-	.blog-card {
-		flex-direction: row;
-		.meta {
-			flex-basis: 40%;
-			height: auto;
+
+
+
+@media all and (max-width: 1100px) and (max-height: 1200px) {
+	.blog-card{
+		flex-direction: column;
+		width:100%;
+		.description{
+			.side-by-side{
+				grid-template-columns: 1fr;
+			}
+			#timeline-divider{
+				padding-left:1rem;
+				.new2 {
+					border-top: 3px dashed red;
+					width: 90%;
+					display: inline-block;
+				}
+			}
 		}
-		.description {
-			flex-basis: 60%;
-		}
-	}
-	.blog-card.alt {
-		flex-direction: row-reverse;
-		.details {
-			padding-left: 25px;
-		}
-	}
-}
-@media screen and (min-width: 460px) and (max-width:638px) {
-	.new2 {
-		border-top: 3px dashed red;
-		width: 400px;
-		display: inline-block;
 	}
 }
-@media (max-width: 390px) {
-	.new2 {
-		border-top: 3px dashed red;
-		width: 230px;
-		display: inline-block;
+@media all and (max-width: 1100px) and (max-height: 950px) {
+	.blog-card{
+		flex-direction: column;
+		width:100%;
+		.description{
+			.side-by-side{
+				grid-template-columns: 1fr;
+			}
+			#timeline-divider{
+				padding-left:1rem;
+				.new2 {
+					border-top: 3px dashed red;
+					width: 90%;
+					display: inline-block;
+				}
+			}
+		}
 	}
 }

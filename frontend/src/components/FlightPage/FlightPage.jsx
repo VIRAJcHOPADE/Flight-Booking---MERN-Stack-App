@@ -43,7 +43,7 @@ const FlightPage = () => {
     }
   }, [keyword, from, to]);
   return (
-    <div className="content color-change">
+    <div className="content color-change flightpage">
       <div className="nav ">
         <div className="searchBar-flight">
           <input
@@ -94,9 +94,11 @@ const FlightPage = () => {
         </div>
       </div>
 
-      {flights?.flights?.map((flight) => (
-        <FlightPageCard item={flight} />
-      ))}
+      <div>
+        {flights?.flights?.map((flight) => (
+          <FlightPageCard item={flight} />
+        ))}
+      </div>
     </div>
   );
 };

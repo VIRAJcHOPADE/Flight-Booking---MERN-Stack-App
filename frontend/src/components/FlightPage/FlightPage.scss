@@ -38,3 +38,22 @@
 	}
 
 }
+
+@media all and (max-width: 1100px) and (max-height: 950px) {
+	
+	.flightpage{
+		display:flex;
+		flex-direction: column;
+		gap:2rem;
+	}
+
+		.nav{
+			width:100%;
+			flex-direction: column;
+			.searchBar-flight{
+				width:100%;
+				padding:1rem 0 ;
+			}
+		}
+	
+}
