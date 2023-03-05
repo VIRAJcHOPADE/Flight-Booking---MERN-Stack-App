@@ -26,6 +26,16 @@ const TourDescription = () => {
     setSuggestedTours(arr);
   };
 
+  const bookTour = async () => {
+    const config = { headers: { "Content-Type": "application/json" } };
+    const { data } = await axios.post(
+      "/api/v1/create-check-out",
+      tour.tour,
+      config
+    );
+    console.log(data);
+  };
+
   useEffect(() => {
     fetchDetails();
     fetchSuggestedTours();
@@ -69,7 +79,7 @@ const TourDescription = () => {
             ))}
           </div>
           <div className="tour-info-child">
-            <button>Book Tour</button>
+            <button onClick={bookTour}>Book Tour</button>
             <button
               onClick={() => {
                 navigate("/contact");

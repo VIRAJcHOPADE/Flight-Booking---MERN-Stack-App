@@ -30,16 +30,16 @@ const SideMenu = () => {
   }, [isAuthenticated]);
   return (
     <>
-      <nav class="sidebar close">
+      <nav className="sidebar close">
         <header>
           <div
-            class="image-text"
+            className="image-text"
             style={{ cursor: "pointer" }}
             onClick={() => {
               navigate("/me");
             }}
           >
-            <span class="image">
+            <span className="image">
               <img
                 src={
                   user?.avatar?.url
@@ -50,13 +50,15 @@ const SideMenu = () => {
               />
             </span>
 
-            <div class="text logo-text">
-              <span class="name">{user?.name ? user?.name : "Guest User"}</span>
+            <div className="text logo-text">
+              <span className="name">
+                {user?.name ? user?.name : "Guest User"}
+              </span>
             </div>
           </div>
 
           <i
-            class="bx bx-chevron-right toggle"
+            className="bx bx-chevron-right toggle"
             onClick={() => {
               document.querySelector("nav").classList.toggle("close");
               document
@@ -66,72 +68,72 @@ const SideMenu = () => {
           ></i>
         </header>
 
-        <div class="menu-bar">
-          <div class="menu">
-            <ul class="menu-links">
-              <li class="nav-link">
+        <div className="menu-bar">
+          <div className="menu">
+            <ul className="menu-links">
+              <li className="nav-link">
                 <NavLink to="/">
-                  <i class="bx bx-home-alt icon"></i>
-                  <span class="text nav-text">Home</span>
+                  <i className="bx bx-home-alt icon"></i>
+                  <span className="text nav-text">Home</span>
                 </NavLink>
               </li>
 
-              <li class="nav-link">
+              <li className="nav-link">
                 <NavLink to="/flight">
-                  <i class="bx bxs-plane icon"></i>
+                  <i className="bx bxs-plane icon"></i>
 
-                  <span class="text nav-text">Flights</span>
+                  <span className="text nav-text">Flights</span>
                 </NavLink>
               </li>
 
-              <li class="nav-link">
+              <li className="nav-link">
                 <NavLink to="/tour">
-                  <i class="bx bx-book icon"></i>
-                  <span class="text nav-text">Tour</span>
+                  <i className="bx bx-book icon"></i>
+                  <span className="text nav-text">Tour</span>
                 </NavLink>
               </li>
 
-              <li class="nav-link">
+              <li className="nav-link">
                 <NavLink to="/contact">
-                  <i class="bx bx-phone icon"></i>
-                  <span class="text nav-text">Contact Us</span>
+                  <i className="bx bx-phone icon"></i>
+                  <span className="text nav-text">Contact Us</span>
                 </NavLink>
               </li>
             </ul>
           </div>
 
-          <div class="bottom-content">
+          <div className="bottom-content">
             {user ? (
               <li
-                class=""
+                className=""
                 style={{ cursor: "pointer" }}
                 onClick={LogoutHandler}
               >
-                <i class="bx bx-log-out icon"></i>
-                <span class="text nav-text">Logout</span>
+                <i className="bx bx-log-out icon"></i>
+                <span className="text nav-text">Logout</span>
               </li>
             ) : (
               <li
-                class=""
+                className=""
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   navigate("/login");
                 }}
               >
-                <i class="bx bx-log-in icon"></i>
-                <span class="text nav-text">Login</span>
+                <i className="bx bx-log-in icon"></i>
+                <span className="text nav-text">Login</span>
               </li>
             )}
 
-            <li class="mode">
-              <div class="sun-moon">
-                <i class="bx bx-moon icon moon"></i>
-                <i class="bx bx-sun icon sun"></i>
+            <li className="mode">
+              <div className="sun-moon">
+                <i className="bx bx-moon icon moon"></i>
+                <i className="bx bx-sun icon sun"></i>
               </div>
-              <span class="mode-text text">Dark mode</span>
+              <span className="mode-text text">Dark mode</span>
 
               <div
-                class="toggle-switch"
+                className="toggle-switch"
                 onClick={() => {
                   document.querySelector("body").classList.toggle("dark");
                   document
@@ -149,7 +151,7 @@ const SideMenu = () => {
                   }
                 }}
               >
-                <span class="switch"></span>
+                <span className="switch"></span>
               </div>
             </li>
           </div>

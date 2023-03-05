@@ -28,6 +28,7 @@ function App() {
   <Route path="/contact" element={<Contacts />} />
   <Route path="/tour" element={<Tours />} />
   <Route path="/tours/:id" element={<TourDescription />} />
+  
 </Routes>
 
 <ToastContainer />

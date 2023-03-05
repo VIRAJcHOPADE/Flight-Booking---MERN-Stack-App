@@ -23,12 +23,14 @@ extended: true ,
 const flight  = require('./routes/FlightRoutes')
 const hotel = require('./routes/HotelRoutes')
 const tour = require('./routes/tourPackageRoute')
+const stripe = require('./routes/StripeRoutes')
 
 app.use("/api/v1/", user);
 app.use("/api/v1/", event);
 app.use("/api/v1/", flight);
 app.use("/api/v1/", hotel);
 app.use("/api/v1/", tour);
+app.use("/api/v1/", stripe);
 
 // app.use(express.static(path.join(__dirname, "../frontend/src")));
 
