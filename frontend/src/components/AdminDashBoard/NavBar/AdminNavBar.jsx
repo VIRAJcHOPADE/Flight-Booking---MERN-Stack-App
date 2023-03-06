@@ -7,6 +7,8 @@ const AdminNavBar = () => {
       <NavLink to="/dashboard/users">Users</NavLink>
       <NavLink to="/dashboard/flights">Flights</NavLink>
       <NavLink to="/dashboard/tours">Tours</NavLink>
+      <NavLink to="/dashboard/events">Events</NavLink>
+      <NavLink to="/dashboard/hotels">Hotels</NavLink>
     </div>
   );
 };

@@ -18,6 +18,8 @@ import { Footer } from "./components/Home/footer/Footer";
 import FlightHandle from './components/AdminDashBoard/FlightHandle/FlightHandle';
 import  TourHandle  from './components/AdminDashBoard/TourHandle/TourHandle';
 import  {UserHandle}  from './components/AdminDashBoard/UserHandle/UserHandle';
+import EventHandle from './components/AdminDashBoard/Extras/EventHandle';
+import HotelHandle from './components/AdminDashBoard/Extras/HotelHandle';
 
 // Stripe API
 // Password : jahnviKangle@1234
@@ -42,6 +44,9 @@ function App() {
   <Route path="/dashboard/flights" element={<FlightHandle />} />
   <Route path="/dashboard/tours" element={<TourHandle />} />
   <Route path="/dashboard/users" element={<UserHandle />} />
+  <Route path="/dashboard/events" element={<EventHandle />} />
+  <Route path="/dashboard/hotels" element={<HotelHandle />} />
+  
 
   
 </Routes>
