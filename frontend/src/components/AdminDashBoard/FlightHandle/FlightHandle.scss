@@ -81,6 +81,11 @@
             display:flex;
             justify-content: space-between;
 
+            .card-btns{
+                display: flex;
+                flex-direction: column;
+                gap:1rem;
+            }
             .update-button{
                 height:2.3rem;
                 display:flex;
@@ -89,6 +94,20 @@
                 box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
                 cursor:pointer;
                 background-color: orange;
+                font-weight:550;
+                color:white;
+                padding:0.2rem;
+                width:6rem;
+                border-radius: 10px;
+            }
+            .delete-button{
+                height:2.3rem;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+                cursor:pointer;
+                background-color: red;
                 font-weight:550;
                 color:white;
                 padding:0.2rem;

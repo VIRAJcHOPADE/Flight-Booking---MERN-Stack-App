@@ -1,6 +1,22 @@
+import axios from "axios";
 import React from "react";
+import { toast } from "react-toastify";
 
 const FlightHandleCard = ({ item, updateFunc, appearCard }) => {
+  const deleteCardHandler = async () => {
+    const { data } = await axios.delete(
+      `/api/v1/admin/delete/flight/${item?._id}`
+    );
+
+    if (data?.success) {
+      toast.success(data?.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } else {
+      toast.error(data?.message);
+    }
+  };
   return (
     <div className="flight-card-admin color-change">
       <div className="flight-card-info">
@@ -44,14 +60,25 @@ const FlightHandleCard = ({ item, updateFunc, appearCard }) => {
           {item?.seatsLeft}
         </p>
       </div>
-      <div
-        className="update-button"
-        onClick={() => {
-          appearCard();
-          updateFunc(item);
-        }}
-      >
-        Update
+
+      <div className="card-btns">
+        <div
+          className="update-button"
+          onClick={() => {
+            appearCard();
+            updateFunc(item);
+          }}
+        >
+          Update
+        </div>
+        <div
+          className="delete-button"
+          onClick={() => {
+            deleteCardHandler();
+          }}
+        >
+          Delete
+        </div>
       </div>
     </div>
   );

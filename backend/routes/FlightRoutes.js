@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.route("/admin/create/flight").post(isAuthenticatedUser , authorizeRole("admin"),createFlight);
 router.route("/admin/update/flight").put(isAuthenticatedUser ,authorizeRole("admin"),updateFlight);
-router.route("/admin/delete/flight").delete(isAuthenticatedUser , authorizeRole("admin") , deleteFlight);
+router.route("/admin/delete/flight/:id").delete(isAuthenticatedUser , authorizeRole("admin") , deleteFlight);
 router.route("/search/flight").get( searchFlights);
 router.route("/all/flights").get(  getAllFlights);
 router.route("/all/tos").get(getAllTos);

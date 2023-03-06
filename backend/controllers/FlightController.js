@@ -32,8 +32,8 @@ exports.updateFlight = (async (req, res, next) => {
 exports.deleteFlight = (async (req, res, next) => {
     try{
 
-        const { _id} = req.body;
-       await Flight.findByIdAndDelete( _id )
+        const  id = req.params.id;
+       await Flight.findByIdAndDelete( id )
        await res.status(200).send({success : true , message : "Deleted Successfully"})
        return;
     }catch(err) {
