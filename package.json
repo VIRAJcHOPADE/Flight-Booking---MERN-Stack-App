@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "nodemon server.js",
     "build" : "npm install --force && npm install --prefix frontend &&  npm run build --prefix frontend"
   },
   "dependencies": {
