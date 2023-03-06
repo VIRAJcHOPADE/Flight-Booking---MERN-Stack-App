@@ -54,3 +54,25 @@
         }
     }
 }
+
+@media all and (max-width:1400px){
+.create-div-cont{
+    .create-div{
+        width:50%;
+    }
+}
+}
+@media all and (max-width:900px){
+.create-div-cont{
+    .create-div{
+        width:70%;
+    }
+}
+}
+@media all and (max-width:700px){
+.create-div-cont{
+    .create-div{
+        width:80%;
+    }
+}
+}

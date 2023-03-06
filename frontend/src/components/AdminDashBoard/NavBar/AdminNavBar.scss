@@ -6,6 +6,8 @@
     padding:0 3rem;
     gap:2rem;
     align-items: center;
+    flex-wrap: wrap;
+    padding:1rem;
 
     a{
         text-decoration: none;
@@ -28,5 +30,17 @@
  @media all and (max-width:600px){
     .admin-navbar{
         justify-content: center;
+        height:9rem
     }
  }
+
+
+
+ @media all and (max-width:450px){
+    .admin-navbar{
+        justify-content: center;
+        height:12rem
+    }
+ }
+
+

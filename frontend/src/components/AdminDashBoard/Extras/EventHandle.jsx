@@ -41,7 +41,7 @@ const EventHandle = () => {
 
       <div className="content create-div-cont color-change">
         <div className="create-div">
-          <h1>Create Event</h1>
+          <h1>Add Event</h1>
 
           <div className="create-form">
             <div>
