@@ -57,10 +57,11 @@ export const LoginAndOut = () => {
 
     if (data?.success == true) {
       toast.success("Login in SuccessFull");
+      toast.success(`Welcome Back ${data?.user?.username}`);
       navigate("/");
       setTimeout(() => {
         window.location.reload();
-      }, 3000);
+      }, 4000);
     } else {
       toast.error(data?.message);
     }

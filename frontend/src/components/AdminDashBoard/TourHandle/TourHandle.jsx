@@ -211,6 +211,13 @@ const TourHandle = () => {
     getUserDetails();
     getAllTours();
   }, [role]);
+
+  useEffect(() => {
+    if (user?.success == false) {
+      toast.error("Unauthorized Access !!");
+      navigate("/");
+    }
+  }, [user]);
   return (
     <>
       <AdminNavBar />

@@ -60,8 +60,15 @@ export const UserHandle = () => {
   };
 
   useEffect(() => {
+    if (user?.success == false) {
+      toast.error(user.message);
+      navigate("/");
+    }
+  }, [user]);
+  useEffect(() => {
     if (role == "user") {
-      toast.error("You are not Authorized !!");
+      toast.error("Unauthorized Access !!");
+
       navigate("/");
     }
     getUserDetails();

@@ -16,7 +16,7 @@ const SideMenu = () => {
   const LogoutHandler = async () => {
     await axios.post("/api/v1/logout");
     toast.success("Logged Out SuccessFully");
-
+    navigate("/");
     setTimeout(() => {
       window.location.reload();
     }, 3000);
