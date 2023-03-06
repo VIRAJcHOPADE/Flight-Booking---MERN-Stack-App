@@ -1,0 +1,57 @@
+.tour-card-admin{
+    padding:1rem;
+    border-radius:10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    width:90%;
+    background-color: #f8f8f885;
+    justify-self: center;
+    display:flex;
+    justify-content: space-between;
+
+    .tour-card-left{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        img{
+            width:100%;;
+            height:12rem;
+            border-radius:10px;
+            
+        }
+    }
+    .card-btns{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
+    .update-button{
+        height:2.3rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+        cursor:pointer;
+        background-color: orange;
+        font-weight:550;
+        color:white;
+        padding:0.2rem;
+        width:6rem;
+        border-radius: 10px;
+    }
+    .delete-button{
+        height:2.3rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+        cursor:pointer;
+        background-color: red;
+        font-weight:550;
+        color:white;
+        padding:0.2rem;
+        width:6rem;
+        border-radius: 10px;
+    }
+
+}

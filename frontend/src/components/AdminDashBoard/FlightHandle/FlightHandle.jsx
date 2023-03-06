@@ -129,9 +129,9 @@ const FlightHandle = () => {
   }, [role]);
   return (
     <>
+      <AdminNavBar />
       {user != null && user?.success == true && role == "admin" ? (
         <>
-          <AdminNavBar />
           <div className="content color-change admin-flight">
             <div className="update-card" style={{ display: display }}>
               <i className="bx bx-x-circle icon cross" onClick={appearCard}></i>
@@ -396,10 +396,10 @@ const FlightHandle = () => {
                     key={key}
                     updateFunc={setUpdateCardDetails}
                     appearCard={appearCard}
-                  />  
+                  />
                 </>
               ))}
-            </div> 
+            </div>
           </div>
         </>
       ) : (
