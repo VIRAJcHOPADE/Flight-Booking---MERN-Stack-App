@@ -32,6 +32,40 @@ const FlightHandle = () => {
       setDisplay("none");
     }
   };
+  const updateFlightHandler = async () => {
+    if (
+      updateCardDetails.company == "" ||
+      updateCardDetails.from == "" ||
+      updateCardDetails.to == "" ||
+      updateCardDetails.departure == "" ||
+      updateCardDetails.landing == "" ||
+      updateCardDetails.seatsLeft <= 0 ||
+      updateCardDetails.ticketPrice <= 0 ||
+      updateCardDetails.departureTime == "" ||
+      updateCardDetails.landingTime == ""
+    ) {
+      toast.error("Please fill in valid details");
+      return;
+    }
+    const config = { headers: { "Content-Type": "application/json" } };
+    const { data } = await axios.put(
+      "/api/v1/admin/update/flight",
+      updateCardDetails,
+      config
+    );
+
+    if (data?.success == true) {
+      toast.success("Data Updated SuccessFully !!");
+      appearCard();
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } else {
+      toast.error(data?.message);
+    }
+  };
+
   useEffect(() => {
     if (role == "user") {
       toast.error("You are not Authorized !!");
@@ -140,7 +174,33 @@ const FlightHandle = () => {
                     }}
                   />
                 </div>
-                <button>Update</button>
+                <div className="update-input">
+                  <label htmlFor="company">Seats Left</label>
+                  <input
+                    type="number"
+                    value={updateCardDetails?.seatsLeft}
+                    onChange={(e) => {
+                      setUpdateCardDetails({
+                        ...updateCardDetails,
+                        seatsLeft: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="update-input">
+                  <label htmlFor="company">Ticket Price</label>
+                  <input
+                    type="number"
+                    value={updateCardDetails?.ticketPrice}
+                    onChange={(e) => {
+                      setUpdateCardDetails({
+                        ...updateCardDetails,
+                        ticketPrice: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <button onClick={updateFlightHandler}>Update</button>
               </div>
             </div>
             <h1>All Flights</h1>
