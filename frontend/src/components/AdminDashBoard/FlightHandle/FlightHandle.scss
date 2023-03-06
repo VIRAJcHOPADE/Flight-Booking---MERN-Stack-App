@@ -63,8 +63,26 @@
             }
         }
     }
-    h1{
-        font-size:3rem;
+    .admin-flight-heading{
+        width:90%;
+        display: flex;
+        justify-content: space-between;
+        h1{
+            font-size:3rem;
+        }
+
+        button{
+            border:none;
+            outline:none;
+            width:7rem;
+            height:3rem;
+            border-radius:10px;
+            background-color: green;
+            color:white;
+            font-weight:550;
+            font-size:1.1rem;
+            cursor:pointer;
+        }
     }
     .all-flight-admin{
         display:grid;
