@@ -1,30 +1,80 @@
-import React from 'react'
-import './UserHandle.scss'
-export const UserHandleCard = () => {
+import axios from "axios";
+import React from "react";
+import { toast } from "react-toastify";
+
+const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
+  const deleteCardHandler = async () => {
+    const { data } = await axios.delete(
+      `/api/v1/admin/delete/tour/${item?._id}`
+    );
+
+    if (data?.success) {
+      toast.success(data?.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
+    } else {
+      toast.error(data?.message);
+    }
+  };
   return (
-    <div>
-         <div class="row-user">
-  <div class="example-1 card-user-handle">
-    <div class="wrapper-user-handle">
-
-		 <div class="image-user">
-			 <img class="book-image-user" src="https://bit.ly/2GkldBe"/>
-		 </div>
-      
-        <div class="user-info-handle">
-                <p class="title-user"> Name: Viraj Vishnu chopade</p>
-                <p class="title-user"> Email: virajchopade527@gmail.com </p>
-
-          {/* <h1 class="title-user"><a href="#" class="cardTitle">Boxing icon has the will for a couple more fights</a></h1> */}
-                <p class="title-user"> UserName: virajchopade</p>
+    <div className="tour-card-admin color-change">
+      <div className="tour-card-left">
+        <div className="tour-image">
+          <img src={item?.image?.url} alt="" />
         </div>
+        <div className="tour-card-info">
+          <p>
+            <b>Name : </b>
+            {item?.name}
+          </p>
+          <p>
+            <b>UserName : </b>
+            {item?.username}
+          </p>
+          <p>
+            <b>Email : </b>
+            {item?.email}
+          </p>
+          <p>
+            <b>Flight Name : </b>
+            {item?.flights?.company}
+          </p>
+          <p>
+            <b>Hotel Name : </b>
+            {item?.hotelDetails?.name}
+          </p>
+          <p>
+            <b>Events : </b>
 
-        <div class="user-button-handle">
-			<button class="custom-btn-user-handle btn-3-user-button"><span>Read More</span></button>
-		 </div>
+            {item?.eventDetails?.map((event) => (
+              <>{event.name},</>
+            ))}
+          </p>
+        </div>
+      </div>
+
+      <div className="card-btns">
+        <div
+          className="update-button"
+          onClick={() => {
+            appearCard();
+            updateFunc({ ...data, _id: item._id });
+          }}
+        >
+          Update
+        </div>
+        <div
+          className="delete-button"
+          onClick={() => {
+            deleteCardHandler();
+          }}
+        >
+          Delete
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-    </div>
-  )
-}
+  );
+};
+
+export default UserHandleCard;
