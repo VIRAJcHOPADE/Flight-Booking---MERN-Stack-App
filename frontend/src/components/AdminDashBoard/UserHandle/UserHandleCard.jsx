@@ -73,7 +73,7 @@ const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
           className="update-button"
           onClick={() => {
             appearCard();
-            updateFunc({ ...data, _id: item._id });
+            updateFunc({ name: item?.name, email: item?.email, _id: item._id });
           }}
         >
           Update

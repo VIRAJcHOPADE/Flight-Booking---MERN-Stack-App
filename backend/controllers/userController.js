@@ -228,6 +228,20 @@ exports.changeUserRole = async(req,res,next)=>{
     }
 }
 
+// Change User Role
+exports.updateUserAdmin = async(req,res,next)=>{
+    try{
+        const {id , name ,username , email} = req.body;
+        const user = await User.findByIdAndUpdate(id , {name : name , username  : username, email : email});
+
+        await user.save();
+    await res.status(200).send({success:true , message : "User Details Updated successfully !!"})
+
+    }catch(error){
+        await res.status(400).send({success : false , message : err.message});
+    }
+}
+
 
 // Book Flight
 exports.bookFlight = async(req,res,next)=>{

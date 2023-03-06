@@ -16,6 +16,7 @@ export const UserHandle = () => {
     setUser(data);
     setRole(data?.user?.role);
   };
+  const [updateCardDetails, setUpdateCardDetails] = useState(null);
 
   const [display, setDisplay] = useState("none");
   const appearCard = () => {
@@ -29,6 +30,33 @@ export const UserHandle = () => {
   const getAllUsers = async () => {
     const { data } = await axios.get("/api/v1/admin/users");
     setAllUsers(data);
+  };
+
+  const updateUserHandler = async () => {
+    appearCard();
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.put(
+      "/api/v1/admin/update/user",
+      {
+        id: updateCardDetails._id,
+        name: updateCardDetails.name,
+        email: updateCardDetails.email,
+        username: updateCardDetails.username,
+      },
+      config
+    );
+
+    if (data?.success == true) {
+      toast.success(data?.message);
+    } else {
+      toast.error(data?.message);
+    }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 4000);
   };
 
   useEffect(() => {
@@ -45,6 +73,52 @@ export const UserHandle = () => {
       {user != null && user?.success == true && role == "admin" ? (
         <>
           <div className="content color-change admin-user">
+            <div className="update-card" style={{ display: display }}>
+              <i className="bx bx-x-circle icon cross" onClick={appearCard}></i>
+              <div className="update-card-cont">
+                <div className="update-input">
+                  <label htmlFor="company">Name</label>
+                  <input
+                    type="text"
+                    value={updateCardDetails?.name}
+                    onChange={(e) => {
+                      setUpdateCardDetails({
+                        ...updateCardDetails,
+                        name: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="update-input">
+                  <label htmlFor="company">Username</label>
+                  <input
+                    type="text"
+                    value={updateCardDetails?.username}
+                    onChange={(e) => {
+                      setUpdateCardDetails({
+                        ...updateCardDetails,
+                        username: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="update-input">
+                  <label htmlFor="company">Email</label>
+                  <input
+                    type="text"
+                    value={updateCardDetails?.email}
+                    onChange={(e) => {
+                      setUpdateCardDetails({
+                        ...updateCardDetails,
+                        email: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+
+                <button onClick={updateUserHandler}>Update</button>
+              </div>
+            </div>
             <div className="admin-users-heading">
               <h1>All Users</h1>
             </div>
@@ -55,8 +129,9 @@ export const UserHandle = () => {
                   <UserHandleCard
                     item={user}
                     key={key}
-                    // updateFunc={setUpdateCardDetails}
+                    updateFunc={setUpdateCardDetails}
                     appearCard={appearCard}
+                    data={updateCardDetails}
                   />
                 </>
               ))}
