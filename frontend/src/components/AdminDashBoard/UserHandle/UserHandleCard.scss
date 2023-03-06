@@ -1,0 +1,112 @@
+.user-card-admin{
+    padding:1rem;
+    border-radius:10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    width:90%;
+    background-color: #f8f8f885;
+    justify-self: center;
+    display:flex;
+    justify-content: space-between;
+
+    .user-card-left{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        .user-card-info{
+            height:100%;
+        }
+        img{
+            width:12rem;
+            height:12rem;
+            border-radius:10px;
+            
+        }
+    }
+    .card-btns{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
+    .update-button{
+        height:2.3rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+        cursor:pointer;
+        background-color: orange;
+        font-weight:550;
+        color:white;
+        padding:0.2rem;
+        width:6rem;
+        border-radius: 10px;
+    }
+    .delete-button{
+        height:2.3rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+        cursor:pointer;
+        background-color: red;
+        font-weight:550;
+        color:white;
+        padding:0.2rem;
+        width:6rem;
+        border-radius: 10px;
+    }
+
+}
+
+
+@media all and (max-width:1400px){
+.user-card-admin{
+    flex-direction: column;
+    gap:1rem;
+width:95%;
+.user-card-left{
+    gap:0;
+    .user-image{
+        img{
+            width:80%;
+            
+        }
+    }
+}
+    .card-btns{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+}
+
+
+@media all and (max-width:1100px){
+.user-card-admin{
+    flex-direction: column;
+    gap:1rem;
+width:95%;
+.user-card-left{
+    flex-direction: column;
+    gap:0;
+    .user-image{
+        width:100%;
+        img{
+            width:100%;
+            
+        }
+    }
+    .user-card-info{
+        width:100%;
+    }
+}
+    .card-btns{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+}
+

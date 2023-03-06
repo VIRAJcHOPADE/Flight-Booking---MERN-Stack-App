@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { toast } from "react-toastify";
-
+import "./UserHandleCard.scss";
 const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
   const deleteCardHandler = async () => {
     const { data } = await axios.delete(
@@ -18,12 +18,12 @@ const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
     }
   };
   return (
-    <div className="tour-card-admin color-change">
-      <div className="tour-card-left">
-        <div className="tour-image">
-          <img src={item?.image?.url} alt="" />
+    <div className="user-card-admin color-change">
+      <div className="user-card-left">
+        <div className="user-image">
+          <img src={item?.avatar?.url} alt="" />
         </div>
-        <div className="tour-card-info">
+        <div className="user-card-info">
           <p>
             <b>Name : </b>
             {item?.name}
@@ -35,21 +35,6 @@ const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
           <p>
             <b>Email : </b>
             {item?.email}
-          </p>
-          <p>
-            <b>Flight Name : </b>
-            {item?.flights?.company}
-          </p>
-          <p>
-            <b>Hotel Name : </b>
-            {item?.hotelDetails?.name}
-          </p>
-          <p>
-            <b>Events : </b>
-
-            {item?.eventDetails?.map((event) => (
-              <>{event.name},</>
-            ))}
           </p>
         </div>
       </div>

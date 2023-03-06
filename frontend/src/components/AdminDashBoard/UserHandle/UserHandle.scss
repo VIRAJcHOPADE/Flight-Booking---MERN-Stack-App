@@ -1,269 +1,44 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-// Variables
-$regal-blue: #034378;
-$san-juan: #2d4e68;
-$bermuda: #77d7b9;
-$white: #fff;
-$black: #000;
-$open-sans: 'Open Sans',
-sans-serif;
-// clear-fix mixin
-@mixin cf {
-  &::before,
-  &::after {
-    content: '';
-    display: table;
+
+.admin-user{
+display:flex;
+margin:3rem 0;
+gap:2rem;
+  .admin-users-heading{
+    h1{
+      font-size:3rem;
+    }
   }
-  &::after {
-    clear: both;
+
+  .all-users-admin{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 2rem;
   }
 }
 
-* {
-  box-sizing: border-box;
-}
 
+@media all and (max-width:1100px){
+  .admin-users{
 
-
-.cardTitle {
-  text-decoration: none;
-}
-
-.title-user {
-  font-family: $open-sans;
-  font-weight: 300;
-}
-
-.row-user {
-  max-width: 800px;
-  margin: 50px auto;
-  
-}
-
-// Base styles
-.card-user-handle {
-   
-  float: left;
-  padding: 0 1.7rem;
-  width: 80%;
-  .menu-content {
-    @include cf;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    li {
-      display: inline-block;
-    }
-    a {
-      color: $white;
-    }
-    span {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      font-size: 10px;
-      font-weight: 700;
-      font-family: 'Open Sans';
-      transform: translate(-50%, 0);
-    }
-  }
-  .wrapper-user-handle {
-    background-color: $white;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 38px rgba(rgb(101, 158, 232), 0.3), 0 10px 12px rgba(rgb(101, 158, 232), 0.2);
-  }
-  .data {
-	  float: right;
-    width: 60%;
-	 height: 100%;
-    .content {
-      padding: 1em;
-      position: relative;
-      z-index: 1;
-    }
-  }
-  
-  .title-user {
-    margin-top: 10px;
-  }
-  
-  input[type='checkbox'] {
-    display: none;
-  }
-  input[type='checkbox']:checked + .menu-content {
-    transform: translateY(-60px);
+      .admin-users-heading{
+          width:80%;
+          align-self: center;
+          display: flex;
+          justify-content: space-between;
+          h1{
+          font-size:2rem;
+      }
+     
   }
 }
+}
 
-// First example styles
-.example-1 {
-  .wrapper-user-handle {
-        display: flex;
-        flex-direction: row;
-	    justify-content: space-around;
-  }
-  .date {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $bermuda;
-    color: $white;
-    padding: 0.8em;
-    span {
-      display: block;
-      text-align: center;
-    }
-    .day {
-      font-weight: 700;
-      font-size: 24px;
-      text-shadow: 2px 3px 2px rgba($black, 0.18);
-    }
-    .month {
-      text-transform: uppercase;
-    }
-    .month,
-    .year {
-      font-size: 12px;
-    }
-  }
-  .content {
-    background-color: $white;
-    box-shadow: 0 5px 30px 10px rgba($black, 0.3);
-  }
-  .title-user {
-    a {
-      color: lighten($black, 50%);
+@media all and (max-width:700px){
+
+  .admin-user{
+
+    .all-users-admin{
+      grid-template-columns: 1fr;
     }
   }
 }
-
-.book-image-user {
-	width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-.image-user{
-    padding-top: 25px;
-}
-
-.user-info-handle{
-        height: 150px;
-        
-        padding-top: 15px;
-}
-
-
-//button
-
-$color_1: #fff;
-$color_2: rgba(2,126,251,1);
-$font-family_1: 'Lato', sans-serif;
-
-/* 3 */
-.custom-btn-user-handle {
-	width: 130px;
-	height: 40px;
-	color: $color_1;
-	border-radius: 5px;
-	padding: 10px 25px;
-	font-family: $font-family_1;
-	font-weight: 500;
-	background: transparent;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	position: relative;
-	display: inline-block;
-	box-shadow: inset 2px 2px 2px 0px rgb(147, 167, 239), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
-	outline: none;
-}
-.btn-3-user-button {
-	background: rgb(0,172,238);
-	background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
-	width: 130px;
-	height: 40px;
-	line-height: 42px;
-	padding: 0;
-	border: none;
-	span {
-		position: relative;
-		display: block;
-		width: 100%;
-		height: 100%;
-		&:hover {
-			color: $color_2;
-			&:before {
-				height: 100%;
-			}
-			&:after {
-				width: 100%;
-			}
-		}
-		&:before {
-			position: absolute;
-			content: "";
-			left: 0;
-			bottom: 0;
-			background: rgba(2,126,251,1);
-			transition: all 0.3s ease;
-			width: 2px;
-			height: 0%;
-		}
-		&:after {
-			position: absolute;
-			content: "";
-			left: 0;
-			bottom: 0;
-			background: rgba(2,126,251,1);
-			transition: all 0.3s ease;
-			width: 0%;
-			height: 2px;
-		}
-	}
-	&:before {
-		position: absolute;
-		content: "";
-		right: 0;
-		top: 0;
-		background: rgba(2,126,251,1);
-		transition: all 0.3s ease;
-		height: 0%;
-		width: 2px;
-	}
-	&:after {
-		position: absolute;
-		content: "";
-		right: 0;
-		top: 0;
-		background: rgba(2,126,251,1);
-		transition: all 0.3s ease;
-		width: 0%;
-		height: 2px;
-	}
-	&:hover {
-		background: transparent;
-		box-shadow: none;
-		&:before {
-			height: 100%;
-		}
-		&:after {
-			width: 100%;
-		}
-	}
-}
-
-.user-button-handle{
-    padding-top: 45px;
-}
-
- @media all and (max-width:660px){
-    .wrapper-user-handle{
-        flex-wrap: wrap;
-    }
- }
- @media all and (min-width:1200px){
-    .row-user {
-        max-width: 1100px;
-        margin: 50px auto;
-}
- }
