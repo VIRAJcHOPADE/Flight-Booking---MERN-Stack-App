@@ -147,7 +147,7 @@ exports.getUserDetails = async(req,res,next)=>{
     try{
         const user = await User.findById(req.user.id);
         await user.populate("flights")
-         await user.populate("tourPackage")
+        await user.populate("tourPackage")
         
         await user.save()
      return await  res.status(200).send({success:true , user})

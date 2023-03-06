@@ -49,6 +49,13 @@ exports.searchFlights = (async (req, res, next) => {
        const { from , to , keyword} = req.query;
 
 
+if(to && !from){
+       
+   const flights = await Flight.find({$or : [   {"to" : {'$regex' : '.*' + `${to}` + '.*' ,$options : 'i'}},
+  ]});
+  
+  await res.status(200).send({success : true ,flights})
+}
 
        if(from && to){
 

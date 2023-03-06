@@ -48,8 +48,10 @@ exports.deleteHotel = (async (req, res, next) => {
 exports.searchHotels = (async (req, res, next) => {
    try{
 
-       const { destination} = req.body;
-      const hotels = await Hotel.find({destination : destination})
+       const  destination = req.params.dest;
+      // const hotels = await Hotel.find({destination : destination})
+      const hotels = await Hotel.find({$or : [{"destination" : {'$regex' : '.*' + `${destination}` + '.*' ,$options : 'i'}} ]});
+
       const hotelCount = await hotels.length;
       await res.status(200).send({success : true ,hotels ,hotelCount } )
       return;

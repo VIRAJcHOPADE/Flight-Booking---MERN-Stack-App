@@ -44,8 +44,11 @@ exports.deleteEvents = (async (req, res, next) => {
 exports.searchEvents = (async (req, res, next) => {
    try{
 
-       const { keywords} = req.body;
-      const events = await Event.find({destination : keywords})
+       const keyword = req.params.dest;
+       
+      // const events = await Event.find({destination : keywords})
+      const events = await Event.find({$or : [{"destination" : {'$regex' : '.*' + `${keyword}` + '.*' ,$options : 'i'}} ]});
+
       await res.status(200).send({success : true ,events})
       return;
    }catch(err) {

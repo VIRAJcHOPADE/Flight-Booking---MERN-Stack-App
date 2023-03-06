@@ -4,8 +4,8 @@ const {createTourPackage , updateTourPackage ,getSingleTour,getAllTours ,deleteT
 const router = express.Router();
 
 router.route("/admin/create/tour").post(isAuthenticatedUser , authorizeRole("admin"),createTourPackage);
-router.route("/admin/update/tour").put(isAuthenticatedUser ,authorizeRole("admnin"),updateTourPackage);
-router.route("/admin/delete/tour").delete(isAuthenticatedUser , authorizeRole("admin") , deleteTourPackage);
+router.route("/admin/update/tour").put(isAuthenticatedUser ,authorizeRole("admin"),updateTourPackage);
+router.route("/admin/delete/tour/:id").delete(isAuthenticatedUser , authorizeRole("admin") , deleteTourPackage);
 router.route("/get/tours/:keyword").get( getTours);
 router.route("/get/all/tours").get( getAllTours);
 router.route("/get/tour/:id").get( getSingleTour);
