@@ -5,7 +5,7 @@ import "./UserHandleCard.scss";
 const UserHandleCard = ({ item, updateFunc, data, appearCard }) => {
   const deleteCardHandler = async () => {
     const { data } = await axios.delete(
-      `/api/v1/admin/delete/tour/${item?._id}`
+      `/api/v1/admin/delete/user/${item?._id}`
     );
 
     if (data?.success) {

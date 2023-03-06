@@ -193,12 +193,8 @@ exports.deleteUser = async(req,res,next)=>{
 exports.deleteUserAdmin = async(req,res,next)=>{
     try{
       
-        const user = await User.find({_id : req.body.id});
-        if(!user){
-            res.status(404).send({success:false , error:"User not found"});
-            return;
-        }
-        await User.findByIdAndDelete( req.body.id);
+        const id = req.params.id;
+         await User.findByIdAndDelete(id)
 
         res.status(200).send({success:true , message : "User deleted Successfully"})
 

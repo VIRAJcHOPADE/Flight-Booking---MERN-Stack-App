@@ -20,7 +20,7 @@ router.route("/me/book/tour").post(isAuthenticatedUser, bookTour);
 
 router.route("/admin/users").get(isAuthenticatedUser,authorizeRole("admin"),getAllUsers);
 
-router.route("/admin/delete/user").delete(isAuthenticatedUser,  authorizeRole("admin") , deleteUserAdmin)
+router.route("/admin/delete/user/:id").delete(isAuthenticatedUser,  authorizeRole("admin") , deleteUserAdmin)
 
 router.route("/admin/update/role").put(isAuthenticatedUser , authorizeRole("admin") , changeUserRole)
 module.exports = router;
